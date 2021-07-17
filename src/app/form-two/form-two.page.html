@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-title style="color: white;">Form Two</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+            <ion-item>
+              <ion-label position="stacked">Address</ion-label>
+              <ion-input formControlName="address1" placeholder="Address Line 1"></ion-input>
+              <ion-input formControlName="address2" placeholder="Address Line 2"></ion-input>
+              <ion-input formControlName="address3" placeholder="Address Line 3"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Area</ion-label>
+              <ion-input
+                name="area"
+                required
+                formControlName="area"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="submitted && f('area').hasError('required')"
+            lines="none">
+            <ion-label *ngIf="f('area').hasError('required')"  style="color: red;">
+              Can't be empty!
+            </ion-label>
+          </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">City</ion-label>
+          <ion-input
+            name="city"
+            required
+            formControlName="city"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">State</ion-label>
+          <ion-input
+            name="State"
+            required
+            formControlName="state"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Pin Code</ion-label>
+          <ion-input
+            name="pinCode"
+            required
+            formControlName="pincode"
+          ></ion-input>
+        </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+         <ion-button  
+         class="ion-margin-vertical"
+         type="submit"
+         color="danger"
+        
+         expand="block">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

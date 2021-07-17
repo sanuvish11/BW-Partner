@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-title style="color: white;">Form One</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Mobile Number</ion-label>
+              <ion-input
+                name="moNumber"
+                required
+                formControlName="moNumber"
+                maxlength="10" 
+                minlength="10"
+                type="tel"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="submitted && f('moNumber').hasError('required')"
+            lines="none">
+            <ion-label *ngIf="f('moNumber').hasError('required')"  style="color: red;">
+              Can't be empty!
+            </ion-label>
+          </ion-item>
+
+        <ion-item *ngIf="submitted && f('moNumber').hasError('minlength')"  
+          lines="none">
+          <ion-label  *ngIf="form.get('moNumber').errors.minlength"  style="color: red;">
+            Must be 10 characters long!
+          </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="f('moNumber').hasError('pattern')" 
+          lines="none">
+          <ion-label   style="color: red;">
+            Input must be a number!
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Adhar Number</ion-label>
+          <ion-input
+            name="adharNumber"
+            required
+            formControlName="adharNumber"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input
+            name="firstName"
+            required
+            formControlName="firstName"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Middle Name</ion-label>
+          <ion-input
+            name="middleName"
+            required
+            formControlName="middleName"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input
+            name="lastName"
+            required
+            formControlName="lastName"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-margin-top">
+          <ion-label>Date of Birth</ion-label>
+          <ion-datetime displayFormat="DD-MMM-YYYY" placeholder="06/05/1998"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Father's Name</ion-label>
+          <ion-input
+            name="fatherName"
+            required
+            formControlName="fatherName"
+          ></ion-input>
+        </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+         <ion-button  
+         class="ion-margin-vertical"
+         type="submit"
+         color="danger"
+        
+         expand="block">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

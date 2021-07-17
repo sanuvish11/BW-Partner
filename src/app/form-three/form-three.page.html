@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-title style="color: white;">Third Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form >
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+            <ion-list>
+
+              <!-- <ion-item class="ion-margin-bottom">
+                <ion-label>Select Language Of Form</ion-label>
+                <ion-select formControlName="language" (ionChange)="changeLanguage()">
+                   <ion-select-option value="en" selected="true">English</ion-select-option>
+                   <ion-select-option value="hin">Hindi</ion-select-option>
+                </ion-select>
+              </ion-item> -->
+
+              <!-- <ng-container *ngIf="show"> -->
+                <ion-item lines="none" class="ion-margin-bottom">
+                  <ion-label class="ion-margin-bottom" position="stacked">{{skill_for_lang}}</ion-label>
+                  <select (change)="getCoreSkills()" formControlName="SKILLS"  name="skill" class="required">
+                    <option value="" disabled selected>Select Location</option>
+                    <option *ngFor="let skills of allSkills"  [ngValue]="skills">{{skills.JOB_NAME}}</option>
+                  </select>
+                </ion-item>
+                
+                <div *ngIf="areaOfWork.length != 0">
+                  <ion-item lines="none">
+                    <ion-label  class="ion-margin-bottom" style="font-size: 20px;" position="stacked">{{coreSkill_for_lang}}</ion-label>
+                  </ion-item>
+                  
+                  <ion-item lines="none" *ngFor="let area of areaOfWork">
+                    <ion-label>{{area.WORK_AREA}}</ion-label>
+                    <ion-checkbox  color="danger" [value]="area"  (ionChange)="onCoreSkillChecked($event)" [checked]="isChecked"> </ion-checkbox>
+                  </ion-item>
+  
+                </div>
+               
+                <div *ngIf="workExperiece.length != 0">
+                  <ion-item lines="none">
+                    <ion-label class="ion-margin-bottom" style="font-size: 20px;" position="stacked">{{workExpe_for_lang}}</ion-label>
+                  </ion-item>
+                  
+                  <ion-item lines="none" *ngFor="let skills of workExperiece">
+                    <ion-label>{{skills.WORK_EXPE}}</ion-label>
+                    <ion-checkbox color="danger" [value]="skills"  (ionChange)="onExperienceChecked($event)" [checked]="isChecked"> </ion-checkbox>
+                  </ion-item>
+    
+                </div>
+             
+                <ion-button  
+                class="ion-margin-vertical"
+                type="submit"
+                color="danger"
+                expand="block">Next</ion-button>
+            
+              <!-- </ng-container> -->
+            </ion-list>
+          </form>
+        
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

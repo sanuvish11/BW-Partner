@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-title style="color: white;">Add New Skills</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+            <form [formGroup]="skillForm"  (ngSubmit)="setSkills()">
+              <h2>Set Skills</h2>
+            <ion-item>
+              <ion-label position="floating">Skills</ion-label>
+              <ion-input
+                name="moNumber"
+                required
+                placeholder="PLUMBER"
+                formControlName="JOB_NAME"
+              ></ion-input>
+            </ion-item>
+            <ion-button
+            class="ion-margin-vertical"
+            type="submit"
+            color="danger"
+            expand="block">
+              Add Skill
+            </ion-button>
+            <ion-button
+            class="ion-margin-vertical"
+            type="submit"
+            color="danger"
+            expand="block">
+              CHECK SKILLS
+            </ion-button>
+          </form>
+
+          <form [formGroup]="coreSkillsForm"  (ngSubmit)="setCoreSkills()">
+            <h2>Set Core Skills</h2>
+            <ion-item lines="none" class="ion-margin-bottom">
+              <ion-label class="ion-margin-bottom" position="stacked">Select your skills</ion-label>
+              <select formControlName="JOB_UID"  name="skill" class="required">
+                <option value="" disabled selected>Select Location</option>
+                <option *ngFor="let skills of allSkills"  [ngValue]="skills._id">{{skills.JOB_NAME}}</option>
+              </select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Core Skill</ion-label>
+              <ion-input
+                name="moNumber"
+                placeholder="Home work"
+                formControlName="WORK_AREA"
+              ></ion-input>
+            </ion-item>
+
+            <ion-button
+            class="ion-margin-vertical"
+            type="submit"
+            color="danger"
+            expand="block">
+              Add Core Skills
+            </ion-button>
+          </form>
+
+          <form [formGroup]="workExpeForm"  (ngSubmit)="setWorkExpe()">
+           <h2>Set Work Experience</h2>
+            <ion-item lines="none" class="ion-margin-bottom">
+              <ion-label class="ion-margin-bottom" position="stacked">Select skills</ion-label>
+              <select  (change)="getSkillsValue($event)" formControlName="skillID" name="skill" class="required">
+                <option value="" disabled selected>Select Location</option>
+                <option *ngFor="let skills of allSkills"  [ngValue]="skills._id">{{skills.JOB_NAME}}</option>
+              </select>
+            </ion-item>
+
+            <ion-item lines="none" class="ion-margin-bottom">
+              <ion-label class="ion-margin-bottom" position="stacked">Select Core Skill</ion-label>
+              <select  formControlName="CORE_SKILL_ID"  name="skill" class="required">
+                <option value="" disabled selected>Select Location</option>
+                <option *ngFor="let skills of allCoreSkills"  [ngValue]="skills._id">{{skills.WORK_AREA}}</option>
+              </select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Work Experience</ion-label>
+              <ion-input
+                name="moNumber"
+                placeholder="Home work"
+                formControlName="WORK_EXPE"
+              ></ion-input>
+            </ion-item>
+
+            <ion-button
+            class="ion-margin-vertical"
+            type="submit"
+            color="danger"
+            expand="block">
+              Add Work Experience
+            </ion-button>
+          </form>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+         <ion-button  
+         class="ion-margin-vertical"
+         type="submit"
+         color="danger"
+        
+         expand="block" routerLink="/form-three">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

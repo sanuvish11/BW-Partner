@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-title style="color: white;" routerLink="/form-three">Back</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [form]="form" (ngSubmit)="onSubmit()">
+
+    <h5 class="ion-margin-start head_Col" >
+     Upload the photos of below document!
+    </h5>
+    <ion-list>
+      <ion-item>
+        <ion-label class="lab_Weight">AdharCard Front Image</ion-label>
+        <ion-button (click)="getAdharForntPhoto()">
+          Take a photo
+        </ion-button>
+        
+      </ion-item>
+      <img class="ion-margin-start" [src]="frontAdhar" alt="">
+     
+      <ion-item>
+        <ion-label class="lab_Weight">AdharCard Front Image</ion-label>
+        <ion-button (click)="getAdharBackPhoto()">
+          Take a photo
+        </ion-button>
+      </ion-item>
+      <img class="ion-margin-start" [src]="backAdhar" alt="">
+      <ion-item>
+        <ion-label class="lab_Weight">Address Proof</ion-label>
+        <ion-button
+         (click)="getAddressProofPhoto()">
+          Take a photo
+        </ion-button>
+      </ion-item>
+      <img class="ion-margin-start" [src]="address" alt="">
+    </ion-list>
+    
+
+   
+    
+    
+    
+    <ion-button 
+    class="ion-margin-vertical"
+    type="submit"
+    color="danger"
+    expand="block" 
+    type="submit">
+      Submit
+    </ion-button>
+    <div class="post-image" *ngFor="let img of formData.formData">
+      <div *ngFor="let m of img.imagePath"> 
+        <!-- <img [src]="m.filename" [alt]="m.destination"> -->
+      </div>
+    </div>
+  </form>
+   
+</ion-content>

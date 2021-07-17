@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-title style="color: white;">Add Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list >
+            <ion-item>
+              <ion-label position="floating">Name</ion-label>
+              <ion-input
+                name="userName"
+                required
+                [ngModel]="userData.userName"
+                formControlName="userName"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Mobile Number</ion-label>
+              <ion-input
+                name="moNumber"
+                required
+                [ngModel]="userData.moNumber"
+                formControlName="moNumber"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">email</ion-label>
+              <ion-input
+                name="email"
+                required
+                [ngModel]="userData.email"
+                formControlName="email"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">password</ion-label>
+              <ion-input
+                name="password"
+                required
+                [ngModel]="userData.password"
+                formControlName="password"
+              ></ion-input>
+            </ion-item>
+
+
+            <ion-item lines="none" class="ion-margin-bottom">
+              <ion-label class="ion-margin-bottom" position="stacked">Job Type</ion-label>
+              <select [ngModel]="userData.jobType" (change)="getJobValue()" formControlName="jobType"  name="jobType" class="required">
+                <option value="" disabled selected>Select Location</option>
+                <option *ngFor="let job of typeOfJob"  [ngValue]="job">{{job}}</option>
+              </select>
+            </ion-item>
+
+            <ion-item lines="none">
+              <!-- <ion-label>Job Status</ion-label> -->
+              <ion-list>
+                <ion-radio-group [ngModel]="userData.status" value="Active" formControlName="status" (ionChange)="getRadioValue($event)">
+                  <ion-list-header>
+                    <ion-label>Job Status</ion-label>
+                  </ion-list-header>
+              
+                  <ion-item>
+                    <ion-label>Active</ion-label>
+                    <ion-radio slot="start" value="Active"></ion-radio>
+                  </ion-item>
+              
+                  <ion-item>
+                    <ion-label>InActive</ion-label>
+                    <ion-radio slot="start" value="inActive"></ion-radio>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-list>
+            </ion-item>
+
+      
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+         <ion-button  
+         class="ion-margin-vertical"
+         type="submit"
+         color="danger"
+         expand="block">ADD USER</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+         <ion-button  
+         class="ion-margin-vertical"
+         color="danger"
+         expand="block" routerLink="/admin-user-reports">Check user list</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
