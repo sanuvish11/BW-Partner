@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash',
     pathMatch: 'full'
   },
   {
@@ -71,6 +71,11 @@ const routes: Routes = [
     path: 'admin-home',
     loadChildren: () => import('./admin-home/admin-home.module').then( m => m.AdminHomePageModule)
   },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+  },
+
 ];
 
 @NgModule({

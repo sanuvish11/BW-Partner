@@ -1,30 +1,38 @@
 <ion-header>
   <ion-toolbar class="tool">
-    <ion-title style="color: white;">Form Two</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Personal Information</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
+  <div class="px-10">
   <form [formGroup]="form"  (ngSubmit)="onSubmit()">
-    <ion-grid>
+    <ion-grid class="form-style">
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
           <ion-list>
             <ion-item>
-              <ion-label position="stacked">Address</ion-label>
-              <ion-input formControlName="address1" placeholder="Address Line 1"></ion-input>
-              <ion-input formControlName="address2" placeholder="Address Line 2"></ion-input>
-              <ion-input formControlName="address3" placeholder="Address Line 3"></ion-input>
+              <ion-label position="floating">Address Line 1</ion-label>
+              <ion-input formControlName="address1"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Address Line 2</ion-label>
+              <ion-input formControlName="address2"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Address Line 3</ion-label>
+              <ion-input formControlName="address3"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Area</ion-label>
-              <ion-input
-                name="area"
-                required
-                formControlName="area"
-              ></ion-input>
+              <ion-input name="area" required formControlName="area"></ion-input>
             </ion-item>
 
             <ion-item *ngIf="submitted && f('area').hasError('required')"
@@ -66,14 +74,10 @@
       </ion-row>
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
-         <ion-button  
-         class="ion-margin-vertical"
-         type="submit"
-         color="danger"
-        
-         expand="block">Next</ion-button>
+         <ion-button class="ion-margin-vertical" type="submit" class="btn-primary" expand="block">Continue</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </form>
+</div>
 </ion-content>

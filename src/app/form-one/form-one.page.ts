@@ -36,8 +36,8 @@ export class FormOnePage implements OnInit {
     //   return;
     // }
     console.log(this.form.value)
-    this.formService.saveFormData(this.form.value);
-    // this.router.navigate(['/form-two'])
+    //this.formService.saveFormData(this.form.value);
+    this.router.navigate(['/form-two'])
    
   }
 

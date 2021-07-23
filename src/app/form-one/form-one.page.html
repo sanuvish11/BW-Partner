@@ -1,13 +1,14 @@
 <ion-header>
   <ion-toolbar class="tool">
-    <ion-title style="color: white;">Form One</ion-title>
+    <ion-title>Personal Information</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
+  <div class="px-10">
   <form [formGroup]="form"  (ngSubmit)="onSubmit()">
-    <ion-grid>
+    <ion-grid class="form-style">
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
           <ion-list>
@@ -99,14 +100,10 @@
       </ion-row>
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
-         <ion-button  
-         class="ion-margin-vertical"
-         type="submit"
-         color="danger"
-        
-         expand="block">Next</ion-button>
+         <ion-button class="ion-margin-vertical" type="submit" class="btn-primary" expand="block">Continue</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </form>
+</div>
 </ion-content>

@@ -1,33 +1,35 @@
 <ion-header>
   <ion-toolbar class="tool">
-    <ion-title style="color: white;" routerLink="/form-three">Back</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Upload Photo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="px-16 form-style">
   <form [form]="form" (ngSubmit)="onSubmit()">
 
-    <h5 class="ion-margin-start head_Col" >
+    <h5 class="head_Col" >
      Upload the photos of below document!
     </h5>
-    <ion-list>
-      <ion-item>
+    <ion-list class="uploadphoto">
+      <ion-item lines="none">
         <ion-label class="lab_Weight">AdharCard Front Image</ion-label>
-        <ion-button (click)="getAdharForntPhoto()">
-          Take a photo
-        </ion-button>
-        
+        <ion-button (click)="getAdharForntPhoto()">Take a photo</ion-button>
       </ion-item>
+
       <img class="ion-margin-start" [src]="frontAdhar" alt="">
      
-      <ion-item>
+      <ion-item lines="none">
         <ion-label class="lab_Weight">AdharCard Front Image</ion-label>
         <ion-button (click)="getAdharBackPhoto()">
           Take a photo
         </ion-button>
       </ion-item>
       <img class="ion-margin-start" [src]="backAdhar" alt="">
-      <ion-item>
+      <ion-item lines="none">
         <ion-label class="lab_Weight">Address Proof</ion-label>
         <ion-button
          (click)="getAddressProofPhoto()">
@@ -36,16 +38,16 @@
       </ion-item>
       <img class="ion-margin-start" [src]="address" alt="">
     </ion-list>
-    
 
-   
-    
-    
+    <ion-item lines="none" class="terms">
+      <ion-checkbox  color="primary" value="accepted"  (ionChange)="getCheckedValue($event)" [checked]="isChecked"> </ion-checkbox> 
+      <ion-label>Check Term And Condition</ion-label>
+    </ion-item>
     
     <ion-button 
     class="ion-margin-vertical"
     type="submit"
-    color="danger"
+    class="btn-primary"
     expand="block" 
     type="submit">
       Submit
@@ -56,5 +58,5 @@
       </div>
     </div>
   </form>
-   
+</div>
 </ion-content>

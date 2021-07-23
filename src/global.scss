@@ -25,6 +25,140 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.tool{
-    --background: #eb445a;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+body {font-size: 16px;}
+
+:root {
+    --ion-font-family: 'Montserrat', sans-serif;
 }
+
+/*******************custome css***************/
+.login-container {
+    padding: 20px;
+    background:#ffffff url(/assets/images/bg.png) 0 0/100% auto no-repeat;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+    position: relative;
+    .login-con {
+        width: 100%;
+        background: #fff;
+        border-radius: 4px;
+        padding:10px;
+        position: relative;
+        margin-top: 15px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+    }
+
+    .logo {
+        padding: 50px 30px;
+    }
+
+    ion-input {
+        border:1px solid #E6E6E6;
+        --placeholder-opacity: 1;
+        --padding-start: 15px;
+        height: 53px;
+        --placeholder-color: #CCCCCC;
+        text-align: center;
+    }
+
+    h1 {text-align: center; font-size: 18px; color: #3B63FF; margin-bottom: 0; font-weight: 600;}
+    p {
+    padding: 0 50px;
+    margin: 3px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    }
+
+    .mobileno {
+        position: relative;
+        margin-top: 5px;
+        ion-label {
+            position: absolute;
+            top: -27px;
+            left: 13px;
+            background: #2568ff;
+            color: #fff;
+            z-index: 9;
+            padding: 0 10px;
+            font-size: 14px;
+        }
+    }
+
+    ion-button {
+        --background: #3B63FF;
+        color: #fff;
+        --border-radius: 0;
+        height: 50px;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        box-shadow: 0 5px 11px rgb(59 99 255 / 27%);
+    }
+
+    .error {margin-top: 5px;}
+}
+
+
+ion-header {
+    height: 56px;
+    ion-toolbar {
+        --background: #3B63FF;
+    }
+    ion-title {color: #fff; font-weight: 600; font-size: 18px;}
+    ion-back-button {--color:#ffffff;}
+}
+
+.btn-primary {
+    --background: #3B63FF;
+    height: 46px;
+    --border-radius: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-style {
+    ion-item {
+        --padding-start:0px;
+        --inner-padding-end: 0;
+    }
+
+    .custome-select {
+        select {
+            border-width: 0 0 1px 0;
+            border-color: #eee;
+            width: 100%;
+            height: 50px;
+        }
+        ion-label {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.uploadphoto {
+    ion-item {
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+        --background:#fff;
+        --padding-start:7px;
+        --inner-padding-end:7px;
+        border:1px solid #f9f9f9;
+        ion-label {font-size: 14px !important;}
+        ion-button {font-size: 12px; font-weight: 600;}
+    }
+}
+
+.terms {
+    ion-checkbox {
+        margin-right: 10px;
+    }
+}
+
+.px-10 {padding-left: 10px !important; padding-right: 10px !important;}
+.px-16 {padding-left: 16px !important; padding-right: 16px !important;}

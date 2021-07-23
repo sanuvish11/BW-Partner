@@ -44,13 +44,13 @@ export class FormTwoPage implements OnInit {
     //   return;
     // }
 
-    this.formService.updateFormData(this.id, this.form.value)
+    /*this.formService.updateFormData(this.id, this.form.value)
     .subscribe((data: any) => {
       if(data){
         this.router.navigate(['/form-three'])
       }
-    });
-
+    });*/
+    this.router.navigate(['/form-three'])
     
    
   }
