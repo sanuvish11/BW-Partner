@@ -233,7 +233,7 @@ function sendSMS(otp, msg) {
     form: {
       'apikey': '2FOIKXErhyfpHlYT',
       'senderid': 'ACCVRF',
-      'number': '91' + '7999368324',
+      'number': '91' + msg,
       'message': 'Use ' + otp + ' as OTP to login into your account. ' + msg,
       'format': 'json',
     }
