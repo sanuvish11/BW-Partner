@@ -276,14 +276,14 @@ let FormThreePage = class FormThreePage {
         this.form.value.CORE_SKILLS = this.SKILLS;
         this.form.value.WORK_EXPERIENCE = this.mainSkills;
         console.log(this.form.value);
-        // setTimeout(() => {
-        //   this.formService.updateFormData(localStorage.getItem('userId'), this.form.value)
-        //   .subscribe((data: any) => {
-        //     if(data){
-        //       this.router.navigate(['/form-fourth']);
-        //     }
-        //   });
-        // }, 500);
+        setTimeout(() => {
+            this.formService.updateFormData(localStorage.getItem('userId'), this.form.value)
+                .subscribe((data) => {
+                if (data) {
+                    this.router.navigate(['/form-fourth']);
+                }
+            });
+        }, 500);
     }
 };
 FormThreePage.ctorParameters = () => [

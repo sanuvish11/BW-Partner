@@ -438,6 +438,8 @@
         }, {
           key: "onSubmit",
           value: function onSubmit() {
+            var _this6 = this;
+
             this.submitted = true;
             this.form.value.CORE_SKILLS = this.SKILLS;
             this.form.value.WORK_EXPERIENCE = this.mainSkills;
@@ -454,14 +456,14 @@
             this.setFormValues();
             this.form.value.CORE_SKILLS = this.SKILLS;
             this.form.value.WORK_EXPERIENCE = this.mainSkills;
-            console.log(this.form.value); // setTimeout(() => {
-            //   this.formService.updateFormData(localStorage.getItem('userId'), this.form.value)
-            //   .subscribe((data: any) => {
-            //     if(data){
-            //       this.router.navigate(['/form-fourth']);
-            //     }
-            //   });
-            // }, 500);
+            console.log(this.form.value);
+            setTimeout(function () {
+              _this6.formService.updateFormData(localStorage.getItem('userId'), _this6.form.value).subscribe(function (data) {
+                if (data) {
+                  _this6.router.navigate(['/form-fourth']);
+                }
+              });
+            }, 500);
           }
         }]);
 

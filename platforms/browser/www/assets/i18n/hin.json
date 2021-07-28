@@ -1,0 +1,37 @@
+{
+	"formData" : {
+		"skills" 		: "कौशल",
+		"coreSkills" 	: "मुख्य कौशल",
+        "workExperience": "कार्य अनुभव",
+		"moNumber": "अपना मोबाइल संख्या दर्ज करे",
+		"otp": "ओटीपी दर्ज करें",
+		"otpVerify": "सत्यापित करें",
+		"resendOtp": "ओटीपी पुनः भेजें",
+
+		"personalInformation": "व्यक्तिगत जानकारी",
+		"enter_moNumber": "मोबाइल नंबर दर्ज करें",
+		"enter_adhar": "आधार नंबर दर्ज करें",
+		"enter_name": "प्रथम नाम",
+		"enter_middleName": " मध्‍य नाम ",
+		"enter_lastNamer": "अंतिम नाम",
+		"enter_dob": "जन्म की तारीख",
+		"enter_fatherName": "पिता का नाम",
+
+		"enter_address1": "पता पंक्ति एक",
+		"enter_address2": "पता पंक्ति दो",
+		"enter_address3": "पता पंक्ति तीन",
+		"enter_area": "क्षेत्र",
+		"enter_city": "शहर",
+		"enter_state": "राज्य",
+		"enter_pinCode": "पिन कोड",
+
+		"uploadPhoto": "फोटो अपलोड करें",
+		"uploadPhotoDocument": "नीचे दिए गए दस्तावेज़ों की तस्वीरें अपलोड करें",
+		"adhar_Front": "आधार फ्रंट फोटो",
+		"adhar_Back": "आधार बैक फोटो",
+		"address_proof": "एड्रेस प्रूफ फोटो",
+		"cant_empty": "खाली नहीं हो सकता",
+		"moValidation": "10 अंक लंबा होना चाहिए",
+		"mo_only_number": "वैल्यू एक नंबर होना चाइये"
+	}
+}

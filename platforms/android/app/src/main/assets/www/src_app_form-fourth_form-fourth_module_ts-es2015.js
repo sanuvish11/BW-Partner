@@ -153,12 +153,6 @@ let FormFourthPage = class FormFourthPage {
             addressProof: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormControl(null, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__.Validators.required]),
             agreement: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormControl(null, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__.Validators.required]),
         });
-        this.options = {
-            quality: 100,
-            destinationType: this.camera.DestinationType.FILE_URI,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE,
-        };
     }
     ngOnInit() {
         this.languageService._translateLanguage();
@@ -174,20 +168,42 @@ let FormFourthPage = class FormFourthPage {
         // });
     }
     getAdharForntPhoto() {
-        this.camera.getPicture(this.options).then((imageData) => {
+        const options = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then((imageData) => {
             const date = new Date().valueOf();
             const imageName = date + ".jpeg";
-            this.frontAdhar = "data:image/jpeg;base64," + imageData;
-            // this.frontAdhar = base64Image;
+            this.frontAdhar = 'data:image/jpeg;base64,' + imageData;
             const imageBlob = this.dataURItoBlob(imageData);
             const file = new File([imageBlob], imageName, {
                 type: "image/jpeg",
             });
+            console.log(file);
             this.form.patchValue({ adharFront: file });
             this.form.get("adharFront").updateValueAndValidity();
             console.log(this.form.value.adharFront);
-            // this.formService.saveImages(file);
+        }, (err) => {
+            // Handle error
+            console.log("Camera issue:" + err);
         });
+        // this.camera.getPicture(this.options).then((imageData) => {
+        //   const date = new Date().valueOf();
+        //   const imageName = date + ".jpeg";
+        //   this.frontAdhar = "data:image/jpeg;base64," + imageData;
+        //   // this.frontAdhar = base64Image;
+        //   const imageBlob = this.dataURItoBlob(imageData);
+        //   const file: File = new File([imageBlob], imageName, {
+        //     type: "image/jpeg",
+        //   });
+        //   this.form.patchValue({ adharFront: file });
+        //   this.form.get("adharFront").updateValueAndValidity();
+        //   console.log(this.form.value.adharFront);
+        // this.formService.saveImages(file);
+        // });
     }
     getCheckedValue(value) {
         console.log(value);
@@ -210,36 +226,80 @@ let FormFourthPage = class FormFourthPage {
         }, (err => console.log(err)));
     }
     getAdharBackPhoto() {
-        this.camera.getPicture(this.options).then((imageData) => {
+        const options = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then((imageData) => {
             const date = new Date().valueOf();
             const imageName = date + ".jpeg";
-            this.backAdhar = "data:image/jpeg;base64," + imageData;
-            // this.backAdhar = base64Image;
+            this.backAdhar = 'data:image/jpeg;base64,' + imageData;
             const imageBlob = this.dataURItoBlob(imageData);
             const file = new File([imageBlob], imageName, {
                 type: "image/jpeg",
             });
+            console.log(file);
             this.form.patchValue({ adharBack: file });
             this.form.get("adharBack").updateValueAndValidity();
             console.log(this.form.value.adharBack);
-            // this.formService.saveImages(file);
+        }, (err) => {
+            // Handle error
+            console.log("Camera issue:" + err);
         });
+        // this.camera.getPicture(this.options).then((imageData) => {
+        //   const date = new Date().valueOf();
+        //   const imageName = date + ".jpeg";
+        //   this.backAdhar = "data:image/jpeg;base64," + imageData;
+        //   // this.backAdhar = base64Image;
+        //   const imageBlob = this.dataURItoBlob(imageData);
+        //   const file: File = new File([imageBlob], imageName, {
+        //     type: "image/jpeg",
+        //   });
+        //   this.form.patchValue({ adharBack: file });
+        //   this.form.get("adharBack").updateValueAndValidity();
+        //   console.log(this.form.value.adharBack);
+        //   // this.formService.saveImages(file);
+        // });
     }
     getAddressProofPhoto() {
-        this.camera.getPicture(this.options).then((imageData) => {
+        const options = {
+            quality: 100,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE
+        };
+        this.camera.getPicture(options).then((imageData) => {
             const date = new Date().valueOf();
             const imageName = date + ".jpeg";
-            this.address = "data:image/jpeg;base64," + imageData;
-            // this.address = base64Image
+            this.address = 'data:image/jpeg;base64,' + imageData;
             const imageBlob = this.dataURItoBlob(imageData);
             const file = new File([imageBlob], imageName, {
                 type: "image/jpeg",
             });
+            console.log(file);
             this.form.patchValue({ addressProof: file });
             this.form.get("addressProof").updateValueAndValidity();
             console.log(this.form.value.addressProof);
-            // this.formService.saveImages(file);
+        }, (err) => {
+            // Handle error
+            console.log("Camera issue:" + err);
         });
+        // this.camera.getPicture(this.options).then((imageData) => {
+        //   const date = new Date().valueOf();
+        //   const imageName = date + ".jpeg";
+        //   this.address = "data:image/jpeg;base64," + imageData;
+        //   // this.address = base64Image
+        //   const imageBlob = this.dataURItoBlob(imageData);
+        //   const file: File = new File([imageBlob], imageName, {
+        //     type: "image/jpeg",
+        //   });
+        //   this.form.patchValue({ addressProof: file });
+        //   this.form.get("addressProof").updateValueAndValidity();
+        //   console.log(this.form.value.addressProof);
+        //   // this.formService.saveImages(file);
+        // });
     }
     f(controls) {
         return this.form.get(controls);
@@ -257,6 +317,7 @@ let FormFourthPage = class FormFourthPage {
     }
     setFormValues() {
         console.log(this.usersData);
+        this.multipleImageUpload = [];
         this.form.value.moNumber = localStorage.getItem('moNumber');
         this.form.value.adharNumber = this.usersData.adharNumber,
             this.form.value.firstName = this.usersData.firstName,
@@ -280,6 +341,9 @@ let FormFourthPage = class FormFourthPage {
     }
     onSubmit() {
         this.setFormValues();
+        console.log(this.form.invalid);
+        console.log(this.showError);
+        console.log(this.form.value);
         this.submitted = true;
         if (this.form.invalid) {
             return;
@@ -287,17 +351,21 @@ let FormFourthPage = class FormFourthPage {
         else if (this.showError == true) {
             return;
         }
+        console.log(this.multipleImageUpload);
         const formData = new FormData();
         for (let img of this.multipleImageUpload) {
+            console.log('under array');
             formData.append("images", img);
         }
         this.apiService.updateImagesById(localStorage.getItem('userId'), formData).subscribe((data) => {
             console.log(data);
             if (data) {
+                console.log('update imaegs workin');
                 this.formService
                     .updateFormData(localStorage.getItem('userId'), this.form.value)
                     .subscribe((data) => {
                     if (data) {
+                        console.log("update details working");
                         this.multipleImageUpload = [];
                         this.router.navigate(["/login"]);
                     }
@@ -347,7 +415,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar class=\"tool\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button text=\"\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>{{languageService.uploadPhoto}}</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"px-16 form-style\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n\n    <h5 class=\"head_Col\" >\n      {{languageService.upload_photo_document}}\n    </h5>\n    <ion-list class=\"uploadphoto\">\n      <ion-item lines=\"none\">\n        <ion-label class=\"lab_Weight\">{{languageService.adhar_front}}</ion-label>\n        <ion-button (click)=\"getAdharForntPhoto()\">फोटो लो</ion-button>\n      </ion-item>\n\n      <img class=\"ion-margin-start\" [src]=\"frontAdhar\" alt=\"\">\n      <ion-item *ngIf=\"submitted && f('adharFront').hasError('required')\"\n      lines=\"none\" class=\"validation\">\n      <ion-label *ngIf=\"f('adharFront').hasError('required')\"  class=\"validation\">\n        {{languageService.cant_empty_for_lang}}\n      </ion-label>\n    </ion-item>\n\n      <ion-item lines=\"none\">\n        <ion-label class=\"lab_Weight\">{{languageService.andhar_back}}</ion-label>\n        <ion-button (click)=\"getAdharBackPhoto()\">\n          फोटो लो\n        </ion-button>\n      </ion-item>\n      <img class=\"ion-margin-start\" [src]=\"backAdhar\" alt=\"\">\n\n      <ion-item *ngIf=\"submitted && f('adharBack').hasError('required')\"\n      lines=\"none\" class=\"validation\">\n      <ion-label *ngIf=\"f('adharBack').hasError('required')\"  class=\"validation\">\n        {{languageService.cant_empty_for_lang}}\n      </ion-label>\n    </ion-item>\n\n      <ion-item lines=\"none\">\n        <ion-label class=\"lab_Weight\">{{languageService.address_proof}}</ion-label>\n        <ion-button\n         (click)=\"getAddressProofPhoto()\">\n         फोटो लो\n        </ion-button>\n      </ion-item>\n      <img class=\"ion-margin-start\" [src]=\"address\" alt=\"\"> \n\n      <ion-item *ngIf=\"submitted && f('addressProof').hasError('required')\"\n      lines=\"none\" class=\"validation\">\n      <ion-label *ngIf=\"f('addressProof').hasError('required')\"  class=\"validation\">\n        {{languageService.cant_empty_for_lang}}\n      </ion-label>\n    </ion-item>\n    </ion-list>\n\n    <ion-item lines=\"none\" class=\"terms\">\n      <ion-checkbox  color=\"primary\" formControlName=\"agreement\"  value=\"accepted\"  (ionChange)=\"getCheckedValue($event)\"> </ion-checkbox> \n      <ion-label>जांच अवधि और शर्त</ion-label>\n    </ion-item>\n    \n    <ion-item *ngIf=\"submitted && f('agreement').hasError('required')\"\n    lines=\"none\" class=\"validation\">\n    <ion-label *ngIf=\"f('agreement').hasError('required')\"  class=\"validation\">\n      {{languageService.cant_empty_for_lang}}\n    </ion-label>\n  </ion-item>\n\n  <ion-item *ngIf=\"showError\"\n  lines=\"none\" class=\"validation\">\n  <ion-label  class=\"validation\">\n    {{languageService.cant_empty_for_lang}}\n  </ion-label>\n</ion-item>\n\n    <ion-button \n    class=\"ion-margin-vertical\"\n    type=\"submit\"\n    class=\"btn-primary\"\n    expand=\"block\" \n    type=\"submit\">\n      जमा करें\n    </ion-button>\n    <div class=\"post-image\" *ngFor=\"let img of formData.formData\">\n      <div *ngFor=\"let m of img.imagePath\"> \n        <!-- <img [src]=\"m.filename\" [alt]=\"m.destination\"> -->\n      </div>\n    </div>\n  </form>\n</div>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar class=\"tool\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button text=\"\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>{{languageService.uploadPhoto}}</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"px-16 form-style\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n\n    <h5 class=\"head_Col\" >\n      {{languageService.upload_photo_document}}\n    </h5>\n    <ion-list class=\"uploadphoto\">\n      <ion-item lines=\"none\">\n        <ion-label class=\"lab_Weight\">{{languageService.adhar_front}}</ion-label>\n        <ion-button (click)=\"getAdharForntPhoto()\">फोटो लो</ion-button>\n      </ion-item>\n\n      <img class=\"ion-margin-start\" [src]=\"frontAdhar\" alt=\"\">\n      <ion-item *ngIf=\"submitted && f('adharFront').hasError('required')\"\n      lines=\"none\" class=\"validation\">\n      <ion-label *ngIf=\"f('adharFront').hasError('required')\"  class=\"validation\">\n        {{languageService.cant_empty_for_lang}}\n      </ion-label>\n    </ion-item>\n\n      <ion-item lines=\"none\">\n        <ion-label class=\"lab_Weight\">{{languageService.andhar_back}}</ion-label>\n        <ion-button (click)=\"getAdharBackPhoto()\">\n          फोटो लो\n        </ion-button>\n      </ion-item>\n      <img class=\"ion-margin-start\" [src]=\"backAdhar\" alt=\"\">\n\n      <ion-item *ngIf=\"submitted && f('adharBack').hasError('required')\"\n      lines=\"none\" class=\"validation\">\n      <ion-label *ngIf=\"f('adharBack').hasError('required')\"  class=\"validation\">\n        {{languageService.cant_empty_for_lang}}\n      </ion-label>\n    </ion-item>\n\n      <ion-item lines=\"none\">\n        <ion-label class=\"lab_Weight\">{{languageService.address_proof}}</ion-label>\n        <ion-button\n         (click)=\"getAddressProofPhoto()\">\n         फोटो लो\n        </ion-button>\n      </ion-item>\n      <img class=\"ion-margin-start\" [src]=\"address\" alt=\"\"> \n\n      <ion-item *ngIf=\"submitted && f('addressProof').hasError('required')\"\n      lines=\"none\" class=\"validation\">\n      <ion-label *ngIf=\"f('addressProof').hasError('required')\"  class=\"validation\">\n        {{languageService.cant_empty_for_lang}}\n      </ion-label>\n    </ion-item>\n    </ion-list>\n\n    <ion-item lines=\"none\" class=\"terms\">\n      <ion-checkbox  color=\"primary\" formControlName=\"agreement\"  value=\"accepted\"  (ionChange)=\"getCheckedValue($event)\"> </ion-checkbox> \n      <ion-label>जांच अवधि और शर्त</ion-label>\n    </ion-item>\n    \n    <ion-item *ngIf=\"submitted && f('agreement').hasError('required')\"\n    lines=\"none\" class=\"validation\">\n    <ion-label *ngIf=\"f('agreement').hasError('required')\"  class=\"validation\">\n      {{languageService.cant_empty_for_lang}}\n    </ion-label>\n  </ion-item>\n\n  <ion-item *ngIf=\"showError\"\n  lines=\"none\" class=\"validation\">\n  <ion-label  class=\"validation\">\n    {{languageService.cant_empty_for_lang}}\n  </ion-label>\n</ion-item>\n\n    <ion-button \n    class=\"ion-margin-vertical\"\n    class=\"btn-primary\"\n    expand=\"block\" \n    type=\"submit\">\n      जमा करें\n    </ion-button>\n  </form>\n</div>\n</ion-content>");
 
 /***/ })
 
