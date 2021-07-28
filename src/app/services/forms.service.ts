@@ -1,17 +1,32 @@
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BwUsers } from '../Models/bwUsers';
+import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormsService {
-
-  constructor(private http: HttpClient, private router: Router) { }
-
+  skill_for_lang: string;
+  coreSkill_for_lang: string;
+  workExpe_for_lang: string;
+  moNumber_for_lang: string;
+  otp_for_lang: string;
+  baseUrl= 'https://bw-partner-server.herokuapp.com/';
+  // baseUrl= 'http://localhost:3000/';
+ 
+  private language: string = "hin";
+  constructor(private http: HttpClient, private router: Router, private _translate: TranslateService, public navCtrl: NavController) { }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
   saveFormData(formData) {
-    this.http.post('http://localhost:3000/api/forms/save', formData)
-      .subscribe((data: any) => {
+    this.http.post(this.baseUrl + 'api/forms/save', formData)
+      .subscribe((data: BwUsers) => {
         console.log(data);
         if (data) {
           this.router.navigate(['/form-two']);
@@ -19,44 +34,39 @@ export class FormsService {
       })
   }
 
+ _translateLanguage(): void {
+    this._translate.use(this.language);
+    this.skill_for_lang = this._translate.instant("formData.skills");
+      this.coreSkill_for_lang = this._translate.instant("formData.coreSkills");
+      this.workExpe_for_lang = this._translate.instant("formData.workExperience");
+      this.moNumber_for_lang = this._translate.instant("formData.moNumber");
+      this.otp_for_lang = this._translate.instant("formData.otp");
+  }
+
   getAllData() {
-    return this.http.get('http://localhost:3000/api/forms/get/all');
+    return this.http.get(this.baseUrl + 'api/forms/get/all',this.httpOptions);
   }
 
   getAllJobs() {
-    return this.http.get('http://localhost:3000/api/jobs/get/all/jobs');
+    return this.http.get(this.baseUrl + 'api/jobs/get/all/jobs',this.httpOptions);
   }
 
 
   updateFormData(id: string, formData) {
-    return this.http.put('http://localhost:3000/api/forms/update/' + id, formData);
+    return this.http.post(this.baseUrl + 'api/forms/update/' + id, formData,this.httpOptions);
   }
 
   getCoreSkillsById(id: any) {
-    return this.http.get('http://localhost:3000/api/jobsWorkArea/' + id);
+    return this.http.get(this.baseUrl + 'api/jobsWorkArea/' + id,this.httpOptions);
   }
 
   getAllCoreSkills() {
-   return this.http.get('http://localhost:3000/api/jobsWorkArea/get/all/jobsWorkArea');
+   return this.http.get(this.baseUrl + 'api/jobsWorkArea/get/all/jobsWorkArea',this.httpOptions);
   }
 
   getSkillsById(id: any) {
-    return this.http.get('http://localhost:3000/api/skills/' + id);
+    return this.http.get(this.baseUrl + 'api/skills/' + id,this.httpOptions);
   }
-
-  // saveImages(file:File) {
-  //   console.log(file)
-  //   const formData = new FormData();
-  //   formData.append('image',file) ;
-  //   const headers = new HttpHeaders().set("Accept", 'multipart/form-data; charset=utf-8');
-
-  //   this.http.post('http://localhost:3000/api/forms', formData,{headers}).subscribe((data: any) => {
-  //     console.log(data);
-  //   },
-  //     (err) => {
-  //       console.log(err);
-  //     })
-  // }
 
   saveImages(adharFront:File, adharBack:File, addressProof: File) {
     const formData = new FormData();
@@ -65,7 +75,7 @@ export class FormsService {
     formData.append('addressProof',addressProof);
     const headers = new HttpHeaders().set("Accept", 'multipart/form-data; charset=utf-8');
 
-    this.http.post('http://localhost:3000/api/forms', formData,{headers}).subscribe((data: any) => {
+    this.http.post(this.baseUrl + 'api/forms', formData,{headers}).subscribe((data: any) => {
       console.log(data);
     },
       (err) => {
@@ -75,6 +85,6 @@ export class FormsService {
 
   updateFormDataImages(id: string, data) {
     const headers = new HttpHeaders().set("Accept", 'multipart/form-data; charset=utf-8');
-    return this.http.put('http://localhost:3000/api/forms/update/' + id, data, {headers});
+    return this.http.put(this.baseUrl + 'api/forms/update/' + id, data, {headers});
   }
 }

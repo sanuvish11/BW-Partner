@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { SubUsers } from './../Models/subUsers';
+import { BwUsers } from '../Models/bwUsers';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,24 @@ export class ApiService {
   private token: string;
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
-  senderid = 'ACCVRF';
+    otp = new BehaviorSubject<number>(0);
+  senderid = 'BHWORK';
   apikey = '2FOIKXErhyfpHlYT';
-  message = "Your one time password is 121212"
-
-  baseUrl= 'http://localhost:3000/';
-
+  _OTP = Math.floor(1000 + Math.random() * 9000);
+  message = "Dear Partner, use OTP " + this._OTP +  "to verify your mobile number - Bharat Worker"
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
+  // baseUrl= 'http://localhost:3000/';
+  baseUrl= 'https://bw-partner-server.herokuapp.com/';
   constructor(private http: HttpClient, private router: Router) { }
 
 createUser(email: string, password: string) {
     const authData: any = { email: email, password: password };
     this.http
-      .post("http://localhost:3000/api/user/signup", authData)
+      .post("http://localhost:3000/api/user/signup", authData,this.httpOptions)
       .subscribe(response => {
         console.log(response);
       },
@@ -89,21 +96,24 @@ createUser(email: string, password: string) {
 
   // http://text.radicaltechsupport.com/V2/http-api.php?senderidsenderid=XXXXXXXXXXXXXXXX&senderid=XXXXXX&number=XXXXXXXXXXX,XXXXXXXXXXX,XXXXXXXXXXX&message=hello there&format=json
   getOtp(number){
-    console.log(number);
-    number = "918349647091"
-    console.log(number);
-    const params = new HttpParams()
-    .set('apikey', this.apikey)
-    .set('senderid', this.senderid)
-    .set('number', number)
-    .set('message', this.message)
-    .set('format', "json");
-    console.log(params.toString());
-    this.http.get("http://text.radicaltechsupport.com/V2/http-api.php", {params}).subscribe((data: any) => {
-      console.log(data);
-    },(err => {
-      console.log(err);
-    }))
+    let _OTP = Math.floor(1000 + Math.random() * 9000);
+    let message = "Dear Partner, use OTP " + _OTP +  " to verify your mobile number - Bharat Worker";
+      console.log(message)
+      this.otp.next(_OTP);
+      this.router.navigate(['/otp']);
+   
+    // const params = new HttpParams()
+    // .set('apikey', this.apikey)
+    // .set('senderid', this.senderid)
+    // .set('number', number)
+    // .set('message', message)
+    // .set('format', "json");
+    // console.log(params.toString());
+    // this.http.get("http://text.radicaltechsupport.com/V2/http-api.php", {params}).subscribe((data: any) => {
+    //   console.log(data);
+    // },(err => {
+    //   console.log(err);
+    // }))
   }
 
   saveSubUsers(userData){
@@ -119,15 +129,15 @@ createUser(email: string, password: string) {
   }
 
   getAllSubUsers(){
-   return this.http.get(this.baseUrl + "api" + "/" + "subUsers" + "/" + "get" + "/" + "all");
+   return this.http.get(this.baseUrl + "api" + "/" + "subUsers" + "/" + "get" + "/" + "all",this.httpOptions);
   }
 
   getSubUserById(id){
-    return this.http.get(this.baseUrl + "api" + "/" + "subUsers" + "/" + id);
+    return this.http.get(this.baseUrl + "api" + "/" + "subUsers" + "/" + id,this.httpOptions);
   }
 
   updateSubUsers(id, userData: SubUsers){
-    this.http.put(this.baseUrl + "api" + "/" + "subUsers" + "/" + "update" + "/" + id, userData)
+    this.http.put(this.baseUrl + "api" + "/" + "subUsers" + "/" + "update" + "/" + id, userData,this.httpOptions)
       .subscribe((res: SubUsers) => {
         console.log(res);
         if(res){
@@ -138,18 +148,40 @@ createUser(email: string, password: string) {
   }
   
   saveSkills(skills){
-    return this.http.post(this.baseUrl + "api/" + "jobs/" +  "save/" + "skill", skills);
+    return this.http.post(this.baseUrl + "api/" + "jobs/" +  "save/" + "skill", skills,this.httpOptions);
   }
 
   saveCoreSkills(coreSkills){
-    return this.http.post(this.baseUrl + "api/" + "jobsWorkArea/" +  "save/" + "coreSkills", coreSkills);
+    return this.http.post(this.baseUrl + "api/" + "jobsWorkArea/" +  "save/" + "coreSkills", coreSkills,this.httpOptions);
   }
 
   saveExpe(expeData){
-    return this.http.post(this.baseUrl + "api/" + "skills/" +  "save/" + "expe", expeData);
+    return this.http.post(this.baseUrl + "api/" + "skills/" +  "save/" + "expe", expeData,this.httpOptions);
   }
 
   subUserLogin(userValue){
     return this.http.post(this.baseUrl + "api/" + "subUsers/" + "user/login", userValue);
   }
+
+  getOtpFromMoNumber(mobileNo: any){
+    return this.http.get(this.baseUrl + "api/forms/getotp/" + mobileNo, this.httpOptions)
+  }
+
+  verifyOtp(verify_otp: any){
+    return this.http.post(this.baseUrl + "api/forms/verify_otp", verify_otp,this.httpOptions);
+  }
+
+
+  updateImagesById(id: string, photofile: any){
+    return this.http.post(this.baseUrl + "api/forms/imageupdate/" + id, photofile,this.httpOptions);
+  }
+
+  getBwUsersById(id: string){
+    return this.http.get(this.baseUrl + "api/forms/getprofile/" + id,this.httpOptions);
+  }
+
+  getValuesFromPincode(pincode: any){
+    return this.http.get(this.baseUrl + "api/allIndiaPostal/getAllIndiaPin/" + pincode,this.httpOptions);
+  }
+
 }
