@@ -55,35 +55,35 @@ const routes = [
     },
     {
         path: 'login',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_login_login_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./login/login.module */ 80107)).then(m => m.LoginPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_login_login_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./login/login.module */ 80107)).then(m => m.LoginPageModule)
     },
     {
         path: 'otp',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_otp_otp_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./otp/otp.module */ 71599)).then(m => m.OtpPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_otp_otp_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./otp/otp.module */ 71599)).then(m => m.OtpPageModule)
     },
     {
         path: 'otp/:status',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_otp_otp_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./otp/otp.module */ 71599)).then(m => m.OtpPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_otp_otp_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./otp/otp.module */ 71599)).then(m => m.OtpPageModule)
     },
     {
         path: 'form-one',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_Models_bwUsers_ts-src_app_services_api_service_ts-src_app_services_forms_serv-9c6a87"), __webpack_require__.e("src_app_form-one_form-one_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-one/form-one.module */ 39420)).then(m => m.FormOnePageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_form-one_form-one_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-one/form-one.module */ 39420)).then(m => m.FormOnePageModule)
     },
     {
         path: 'form-two',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_Models_bwUsers_ts-src_app_services_api_service_ts-src_app_services_forms_serv-9c6a87"), __webpack_require__.e("src_app_form-two_form-two_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-two/form-two.module */ 72624)).then(m => m.FormTwoPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_form-two_form-two_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-two/form-two.module */ 72624)).then(m => m.FormTwoPageModule)
     },
     {
         path: 'form-three',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_Models_bwUsers_ts-src_app_services_api_service_ts-src_app_services_forms_serv-9c6a87"), __webpack_require__.e("src_app_form-three_form-three_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-three/form-three.module */ 27603)).then(m => m.FormThreePageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_form-three_form-three_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-three/form-three.module */ 27603)).then(m => m.FormThreePageModule)
     },
     {
         path: 'form-fourth',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_Models_bwUsers_ts-src_app_services_api_service_ts-src_app_services_forms_serv-9c6a87"), __webpack_require__.e("src_app_form-fourth_form-fourth_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-fourth/form-fourth.module */ 10275)).then(m => m.FormFourthPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_form-fourth_form-fourth_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-fourth/form-fourth.module */ 10275)).then(m => m.FormFourthPageModule)
     },
     {
         path: 'form-five',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_form-five_form-five_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./form-five/form-five.module */ 22990)).then(m => m.FormFivePageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_form-five_form-five_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./form-five/form-five.module */ 22990)).then(m => m.FormFivePageModule)
     },
     {
         path: 'start',
@@ -99,7 +99,7 @@ const routes = [
     },
     {
         path: 'admin-set-skills',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_admin-set-skills_admin-set-skills_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./admin-set-skills/admin-set-skills.module */ 53375)).then(m => m.AdminSetSkillsPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_admin-set-skills_admin-set-skills_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./admin-set-skills/admin-set-skills.module */ 53375)).then(m => m.AdminSetSkillsPageModule)
     },
     {
         path: 'admin-user-reports',
@@ -116,6 +116,62 @@ const routes = [
     {
         path: 'splash',
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_splash_splash_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./splash/splash.module */ 89623)).then(m => m.SplashPageModule)
+    },
+    {
+        path: 'dashboard',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_dashboard_dashboard_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./dashboard/dashboard.module */ 34814)).then(m => m.DashboardPageModule)
+    },
+    {
+        path: 'notification',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_notification_notification_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./notification/notification.module */ 22154)).then(m => m.NotificationPageModule)
+    },
+    {
+        path: 'message',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_message_message_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./message/message.module */ 42770)).then(m => m.MessagePageModule)
+    },
+    {
+        path: 'bank-details',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_bank-details_bank-details_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bank-details/bank-details.module */ 38767)).then(m => m.BankDetailsPageModule)
+    },
+    {
+        path: 'bank-details/:id',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_bank-details_bank-details_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bank-details/bank-details.module */ 38767)).then(m => m.BankDetailsPageModule)
+    },
+    {
+        path: 'family-details',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_family-details_family-details_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./family-details/family-details.module */ 92746)).then(m => m.FamilyDetailsPageModule)
+    },
+    {
+        path: 'edit-skills',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_edit-skills_edit-skills_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./edit-skills/edit-skills.module */ 79289)).then(m => m.EditSkillsPageModule)
+    },
+    {
+        path: 'edit-address',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_edit-address_edit-address_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./edit-address/edit-address.module */ 48990)).then(m => m.EditAddressPageModule)
+    },
+    {
+        path: 'show-bank-details',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_show-bank-details_show-bank-details_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./show-bank-details/show-bank-details.module */ 93651)).then(m => m.ShowBankDetailsPageModule)
+    },
+    {
+        path: 'wallet',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_wallet_wallet_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./wallet/wallet.module */ 49555)).then(m => m.WalletPageModule)
+    },
+    {
+        path: 'show-family-details',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_show-familiy-details_show-familiy-details_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./show-familiy-details/show-familiy-details.module */ 60722)).then(m => m.ShowFamiliyDetailsPageModule)
+    },
+    {
+        path: 'edit-family-details',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_edit-family-details_edit-family-details_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./edit-family-details/edit-family-details.module */ 25519)).then(m => m.EditFamilyDetailsPageModule)
+    },
+    {
+        path: 'edit-family-details/:id',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_edit-family-details_edit-family-details_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./edit-family-details/edit-family-details.module */ 25519)).then(m => m.EditFamilyDetailsPageModule)
+    },
+    {
+        path: 'user-page',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_user-page_user-page_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./user-page/user-page.module */ 10168)).then(m => m.UserPagePageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -144,12 +200,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppComponent": function() { return /* binding */ AppComponent; }
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 64762);
 /* harmony import */ var _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./app.component.html */ 91106);
 /* harmony import */ var _app_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component.scss */ 43069);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 37716);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ 80476);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ 29790);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ 80476);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/core */ 29790);
+/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ 24276);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 39895);
+/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/api.service */ 5830);
+/* harmony import */ var _services_common_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/common.service */ 5620);
+
+
+
+
 
 
 
@@ -157,13 +221,42 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(_platform, _translate) {
+    constructor(_platform, _translate, menu, socialSharing, platform, router, apiService, commonService) {
         this._platform = _platform;
         this._translate = _translate;
+        this.menu = menu;
+        this.socialSharing = socialSharing;
+        this.platform = platform;
+        this.router = router;
+        this.apiService = apiService;
+        this.commonService = commonService;
+        this.title = 'socketio-angular';
+        this.ref_code = localStorage.getItem('refferalCode');
         this._initTranslate();
-        // this._platform.ready().then(() => {
-        //   this._initTranslate();  
-        // });
+        this.backButtonEvent();
+    }
+    openEnd() {
+        this.menu.close();
+    }
+    share() {
+        this.menu.close();
+        var appUrl = 'https://play.google.com/store/apps/details?id=com.whatsapp';
+        this.socialSharing.share('Install the app and add ' + this.ref_code + ' this refId to get the money', '', '', appUrl)
+            .then(() => {
+        });
+    }
+    backButtonEvent() {
+        this.platform.backButton.subscribeWithPriority(50, () => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
+            if (this.router.url === '/form-one') {
+                navigator["app"].exitApp();
+            }
+            else if (this.router.url === '/dashboard') {
+                navigator["app"].exitApp();
+            }
+            else if (this.routerOutlet && this.routerOutlet.canGoBack()) {
+                this.routerOutlet.pop();
+            }
+        }));
     }
     _initTranslate() {
         // Set the default language for translation strings, and the current language.
@@ -177,11 +270,20 @@ let AppComponent = class AppComponent {
     }
 };
 AppComponent.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.Platform },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateService }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.Platform },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__.TranslateService },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.MenuController },
+    { type: _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_2__.SocialSharing },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.Platform },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__.Router },
+    { type: _services_api_service__WEBPACK_IMPORTED_MODULE_3__.ApiService },
+    { type: _services_common_service__WEBPACK_IMPORTED_MODULE_4__.CommonService }
 ];
-AppComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
+AppComponent.propDecorators = {
+    routerOutlet: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_9__.ViewChild, args: [_ionic_angular__WEBPACK_IMPORTED_MODULE_6__.IonRouterOutlet, { static: false },] }]
+};
+AppComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
         selector: "app-root",
         template: _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_app_component_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -204,18 +306,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "HttpLoaderFactory": function() { return /* binding */ HttpLoaderFactory; },
 /* harmony export */   "AppModule": function() { return /* binding */ AppModule; }
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 64762);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ 39075);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 39895);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ 91841);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/angular */ 80476);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ 39075);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ 39895);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ 91841);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic/angular */ 80476);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 3679);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component */ 55041);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app-routing.module */ 90158);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 37716);
-/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/http-loader */ 32472);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ 29790);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/http-loader */ 32472);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ 29790);
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/camera/ngx */ 84267);
+/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ 24276);
+
 
 
 
@@ -229,30 +333,324 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function HttpLoaderFactory(http) {
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_3__.TranslateHttpLoader(http, "./assets/i18n/", ".json");
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_4__.TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 let AppModule = class AppModule {
 };
-AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.NgModule)({
+AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.NgModule)({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__.BrowserModule,
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_7__.HttpClientModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_8__.ReactiveFormsModule,
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__.TranslateModule.forRoot({
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__.BrowserModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_8__.HttpClientModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_9__.ReactiveFormsModule,
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__.TranslateModule.forRoot({
                 loader: {
-                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__.TranslateLoader,
+                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__.TranslateLoader,
                     useFactory: HttpLoaderFactory,
-                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_7__.HttpClient]
+                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_8__.HttpClient]
                 }
             }),
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule],
         providers: [_ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_2__.Camera,
-            { provide: _angular_router__WEBPACK_IMPORTED_MODULE_11__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.IonicRouteStrategy }],
+            { provide: _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.IonicRouteStrategy }, _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_3__.SocialSharing],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ 5830:
+/*!*****************************************!*\
+  !*** ./src/app/services/api.service.ts ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ApiService": function() { return /* binding */ ApiService; }
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ 91841);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 79765);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 26215);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 39895);
+
+
+
+
+
+let ApiService = class ApiService {
+    // ahmadAccount = 'https://bw-app-server.herokuapp.com/';
+    constructor(http, router) {
+        this.http = http;
+        this.router = router;
+        this.isAuthenticated = false;
+        this.authStatusListener = new rxjs__WEBPACK_IMPORTED_MODULE_0__.Subject();
+        this.otp = new rxjs__WEBPACK_IMPORTED_MODULE_1__.BehaviorSubject(0);
+        this.senderid = 'BHWORK';
+        this.apikey = '2FOIKXErhyfpHlYT';
+        this._OTP = Math.floor(1000 + Math.random() * 9000);
+        this.message = "Dear Partner, use OTP " + this._OTP + "to verify your mobile number - Bharat Worker";
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+                'Content-Type': 'application/json',
+            })
+        };
+        this.baseUrlForLocal = 'http://localhost:3001/';
+        this.baseUrl = 'https://bw-app-server.herokuapp.com/';
+    }
+    createUser(email, password) {
+        const authData = { email: email, password: password };
+        this.http
+            .post("http://localhost:3000/api/user/signup", authData, this.httpOptions)
+            .subscribe(response => {
+            console.log(response);
+        }, (err) => {
+            console.log(err);
+        });
+    }
+    logOut() {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('refferalCode');
+        localStorage.removeItem('walletAmount');
+        localStorage.removeItem('moNumber');
+        this.router.navigate(['/login']);
+    }
+    login(email, password) {
+        const authData = { email: email, password: password };
+        this.http
+            .post("http://localhost:3000/api/user/login", authData)
+            .subscribe(response => {
+            console.log(response);
+            const token = response.token;
+            this.token = token;
+            if (token) {
+                const expiresInDuration = response.expiresIn;
+                this.setAuthTimer(expiresInDuration);
+                this.isAuthenticated = true;
+                this.authStatusListener.next(true);
+                const now = new Date();
+                const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
+                console.log(expirationDate);
+                this.saveAuthData(token, expirationDate);
+                this.router.navigate(["/admin-home"]);
+            }
+        }, (err) => {
+            console.log(err);
+        });
+    }
+    saveAuthData(token, expirationDate) {
+        localStorage.setItem("token", token);
+        localStorage.setItem("expiration", expirationDate.toISOString());
+    }
+    logout() {
+        this.token = null;
+        this.isAuthenticated = false;
+        this.authStatusListener.next(false);
+        clearTimeout(this.tokenTimer);
+        this.clearAuthData();
+        this.router.navigate(['/auth']);
+    }
+    clearAuthData() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("expiration");
+    }
+    setAuthTimer(duration) {
+        console.log("Setting timer: " + duration);
+        this.tokenTimer = setTimeout(() => {
+            this.logout();
+        }, duration * 1000);
+    }
+    // http://text.radicaltechsupport.com/V2/http-api.php?senderidsenderid=XXXXXXXXXXXXXXXX&senderid=XXXXXX&number=XXXXXXXXXXX,XXXXXXXXXXX,XXXXXXXXXXX&message=hello there&format=json
+    getOtp(number) {
+        let _OTP = Math.floor(1000 + Math.random() * 9000);
+        let message = "Dear Partner, use OTP " + _OTP + " to verify your mobile number - Bharat Worker";
+        console.log(message);
+        this.otp.next(_OTP);
+        this.router.navigate(['/otp']);
+        // const params = new HttpParams()
+        // .set('apikey', this.apikey)
+        // .set('senderid', this.senderid)
+        // .set('number', number)
+        // .set('message', message)
+        // .set('format', "json");
+        // console.log(params.toString());
+        // this.http.get("http://text.radicaltechsupport.com/V2/http-api.php", {params}).subscribe((data: any) => {
+        //   console.log(data);
+        // },(err => {
+        //   console.log(err);
+        // }))
+    }
+    saveSubUsers(userData) {
+        this.http.post(this.baseUrl + "api" + "/" + "subUsers" + "/" + "save", userData).subscribe((res) => {
+            console.log(res);
+            if (res) {
+                this.router.navigate(['/admin-user-reports']);
+            }
+        }, (err => {
+            console.log(err);
+        }));
+    }
+    getAllSubUsers() {
+        return this.http.get(this.baseUrl + "api" + "/" + "subUsers" + "/" + "get" + "/" + "all", this.httpOptions);
+    }
+    getSubUserById(id) {
+        return this.http.get(this.baseUrl + "api" + "/" + "subUsers" + "/" + id, this.httpOptions);
+    }
+    updateSubUsers(id, userData) {
+        this.http.put(this.baseUrl + "api" + "/" + "subUsers" + "/" + "update" + "/" + id, userData, this.httpOptions)
+            .subscribe((res) => {
+            console.log(res);
+            if (res) {
+                this.router.navigate(['/admin-user-reports']);
+            }
+        }, (err => console.log(err)));
+    }
+    saveSkills(skills) {
+        return this.http.post(this.baseUrl + "api/" + "jobs/" + "save/" + "skill", skills, this.httpOptions);
+    }
+    saveCoreSkills(coreSkills) {
+        return this.http.post(this.baseUrl + "api/" + "jobsWorkArea/" + "save/" + "coreSkills", coreSkills, this.httpOptions);
+    }
+    saveExpe(expeData) {
+        return this.http.post(this.baseUrl + "api/" + "skills/" + "save/" + "expe", expeData, this.httpOptions);
+    }
+    subUserLogin(userValue) {
+        return this.http.post(this.baseUrl + "api/" + "subUsers/" + "user/login", userValue);
+    }
+    getOtpFromMoNumber(mobileNo) {
+        return this.http.get(this.baseUrl + "api/forms/getotp/" + mobileNo, this.httpOptions);
+    }
+    verifyOtp(verify_otp) {
+        console.log(verify_otp);
+        return this.http.post(this.baseUrl + "api/forms/verify_otp", verify_otp, this.httpOptions);
+    }
+    updateImagesById(id, photofile) {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders().set("Accept", 'multipart/form-data; charset=utf-8');
+        return this.http.post(this.baseUrl + "api/forms/imageupdate/" + id, photofile, { headers });
+    }
+    getBwUsersById(id) {
+        return this.http.get(this.baseUrl + "api/forms/getprofile/" + id, this.httpOptions);
+    }
+    getValuesFromPincode(pincode) {
+        return this.http.get(this.baseUrl + "api/allIndiaPostal/getAllIndiaPin/" + pincode, this.httpOptions);
+    }
+    getAllNotifications() {
+        return this.http.get(this.baseUrl + "api/notification/getAll");
+    }
+    updateNotificationData(id, notiData) {
+        return this.http.post(this.baseUrl + "api/notification/update/" + id, notiData);
+    }
+    saveBankDetails(bankDetails) {
+        this.http.post(this.baseUrl + "api/bankDetails/save", bankDetails)
+            .subscribe((res) => {
+            console.log(res);
+            if (res) {
+                this.router.navigate(['/show-bank-details']);
+            }
+        }, (err => { console.log(err); }));
+    }
+    updateBankDetailsById(userId, formData) {
+        this.http.post(this.baseUrl + "api/bankDetails/update/" + userId, formData)
+            .subscribe((data => {
+            console.log(data);
+            if (data) {
+                this.router.navigate(['/show-bank-details']);
+            }
+        }), (err => { console.log(err); }));
+    }
+    getBankDetailsById(userId) {
+        return this.http.get(this.baseUrl + "api/bankDetails/" + userId);
+    }
+    saveFamilyDetails(userFamilyDetails) {
+        this.http.post("https://bw-partner-server.herokuapp.com/api/familyDetail/save", userFamilyDetails)
+            .subscribe((res) => {
+            console.log(res);
+            if (res) {
+                this.router.navigate((['/show-family-details']));
+            }
+        }, (err => { console.log(err); }));
+    }
+    getFamilyDetailsById(userId) {
+        return this.http.get(this.baseUrl + "api/familyDetail/" + userId);
+    }
+    verifyRefferalCode(refferalCode) {
+        return this.http.get(this.baseUrl + "api/forms/reffral/" + refferalCode);
+    }
+    saveUserNotification(userData) {
+        this.http.post(this.baseUrl + "api/userNotification/save", userData)
+            .subscribe((res) => {
+            console.log(res);
+        }, (err => { console.log(err); }));
+    }
+    getUserNotiData() {
+        return this.http.get(this.baseUrl + "api/userNotification/getAll");
+    }
+    updateUserNotiData(id, formData) {
+        this.http.post(this.baseUrl + "api/userNotification/update/" + id, formData)
+            .subscribe((res) => {
+            console.log(res);
+        }, (err => { console.log(err); }));
+    }
+};
+ApiService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpClient },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__.Router }
+];
+ApiService = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Injectable)({
+        providedIn: 'root'
+    })
+], ApiService);
+
+
+
+/***/ }),
+
+/***/ 5620:
+/*!********************************************!*\
+  !*** ./src/app/services/common.service.ts ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CommonService": function() { return /* binding */ CommonService; }
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 37716);
+
+
+let CommonService = class CommonService {
+    constructor() {
+        this.familyList = [];
+        this.bankList = [];
+    }
+    getFamilyData() {
+        return this.familyList;
+    }
+    setFamilyData(data) {
+        this.familyList = data;
+    }
+    getBankData() {
+        return this.bankList;
+    }
+    setBankData(data) {
+        this.bankList = data;
+    }
+};
+CommonService.ctorParameters = () => [];
+CommonService = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.Injectable)({
+        providedIn: 'root'
+    })
+], CommonService);
 
 
 
@@ -273,7 +671,7 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false
+    production: false,
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -567,7 +965,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-menu menuId=\"main-menu\" content-id=\"main\">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Bharat Worker</ion-title>\n          <!-- <div class=\"miline\"><img src=\"./assets/five-star-images/catalog/logo0.png\" id=\"mipics\"></div> -->\n          <!-- <div class=\"miline ion-margin-vertical ion-margin-horizontal\"><img src=\"./assets/five-star-images/catalog/logo0.png\"></div> -->\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content>\n\n    <div class=\"manu_options\">\n      <ion-list lines=\"none\">\n        \n        <ion-item  class=\"ionitomc\" routerLink=\"/dashboard\" (click)=\"openEnd()\" >\n          <ion-icon name=\"home\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label  class=\"alllabel\">HOME</ion-label>\n        </ion-item>\n    \n        <ion-item routerLink=\"/wallet\" class=\"ionitomc\"  (click)=\"openEnd()\" >\n          <ion-icon name=\"cart\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\" >My Wallet</ion-label>\n        </ion-item>\n\n      \n\n        <ion-item class=\"ionitomc\" routerLink=\"/family-details\" (click)=\"openEnd()\">\n          <ion-icon name=\"log-in-sharp\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Add Family Details</ion-label>\n        </ion-item>\n\n        <ion-item class=\"ionitomc\" routerLink=\"/user-page\" (click)=\"openEnd()\">\n          <ion-icon name=\"log-in-sharp\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">User Page</ion-label>\n        </ion-item>\n\n        <ion-item class=\"ionitomc\" routerLink=\"/bank-details\" (click)=\"openEnd()\"  button >\n          <ion-icon name=\"log-in-sharp\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Add Bank Details</ion-label>\n        </ion-item>\n\n        <ion-item class=\"ionitomc\" routerLink=\"/show-family-details\" (click)=\"openEnd()\"  button >\n          <ion-icon name=\"log-in-sharp\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Show Family Details</ion-label>\n        </ion-item>\n\n        <ion-item class=\"ionitomc\"  button (click)=\"share()\" (click)=\"openEnd()\">\n          <ion-icon name=\"share-social-sharp\"  slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Invite</ion-label>\n        </ion-item>\n\n        <ion-item class=\"ionitomc\"  button routerLink=\"/edit-skills\"  (click)=\"openEnd()\">\n          <ion-icon name=\"share-social-sharp\"  slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Edit Skills</ion-label>\n        </ion-item>\n\n        <ion-item class=\"ionitomc\"  button routerLink=\"/show-bank-details\"  (click)=\"openEnd()\">\n          <ion-icon name=\"share-social-sharp\"  slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Show Bank Details</ion-label>\n        </ion-item>\n\n        <ion-item class=\"ionitomc\"  button routerLink=\"/edit-address\"  (click)=\"openEnd()\">\n          <ion-icon name=\"share-social-sharp\"  slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Edit Address</ion-label>\n        </ion-item>\n\n\n        <ion-item  (click)=\"openEnd()\"  class=\"ionitomc\" lines=\"none\" >\n          <ion-icon name=\"notifications\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Settings</ion-label>\n        </ion-item>  \n\n        <ion-item class=\"ionitomc\" button (click)=\"openEnd()\" (click)=\"apiService.logOut()\" >\n          <ion-icon name=\"document-text\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">Logout</ion-label>\n        </ion-item>\n        <!-- <ion-item class=\"ionitomc\">\n          <ion-icon name=\"share-social\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label class=\"alllabel\">SHARE APP</ion-label>\n        </ion-item> -->\n\n        <!-- <ion-item  class=\"ionitomc\" *ngIf=\"userIsAuthenticated\" button  (click)=\"apiService.logout()\" (click)=\"logout()\">\n          <ion-icon  name=\"power\" slot=\"start\" id=\"iicons\"></ion-icon>\n          <ion-label  class=\"alllabel\">LOGOUT</ion-label>\n        </ion-item> -->\n \n\n\n\n        \n \n\n      </ion-list>\n\n    </div>\n     \n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>\n");
 
 /***/ })
 

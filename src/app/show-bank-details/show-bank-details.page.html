@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{languageService.account_details_lang}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col col-12 col-xl-2 col-lg-3 col-md-4>
+      <ng-container *ngIf="!spinner">
+        <ion-row>
+          <ion-col size="11">
+            <ion-label class="daddres ion-margin-vertical ion-margin-horizontal">Bank  Details</ion-label>
+          </ion-col>
+          <ion-col [routerLink]="['/bank-details/', userId]" size="1">
+            <ion-icon name="pencil" class="iconadd  ion-margin-horizontal ion-float-right" >
+            </ion-icon>
+          </ion-col>
+          
+          </ion-row>
+
+          <div *ngFor="let b of bankDetails">
+            <ion-label class="name">{{languageService.account_holder_lang}}- {{b.ACCOUNT_HOLDER_NAME}}</ion-label>
+            <div >
+              <ion-row class="addres">{{languageService.ifsc_code_lang}} - {{b.IFSC}}</ion-row>
+            </div>
+            <ion-row class="pin">{{languageService.account_number_lang}} - {{b.ACOOUNT_NUMBER}}</ion-row>
+            <ion-row style="margin-top:10px;"><ion-label class="mobile">{{languageService.mobile_number_lang}} :</ion-label>
+              <ion-label class="number">{{b.PHONE_NUMBER}}</ion-label>
+            </ion-row>
+          </div>
+    
+     
+      
+       </ng-container>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

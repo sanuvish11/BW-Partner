@@ -41,6 +41,25 @@
           </ion-label>
         </div>
 
+
+        <ion-item lines="none" class="terms">
+          <ion-checkbox  color="primary"  value=""  (ionChange)="getCheckedValue($event)"> </ion-checkbox> 
+          <ion-label>Referal Code</ion-label>
+        </ion-item>
+
+
+        <div class="mobileno" *ngIf="showTextBox" >
+          <h1>Enter Referal code</h1>
+          <ion-input name="REFERAL_CODE" formControlName="REFERAL_CODE" placeholder="123456"></ion-input>
+        </div>
+
+        <div class="error" *ngIf="showError && onSubmit" 
+          lines="none">
+          <ion-label   style="color: red;">
+            Refferal code is not correct!
+          </ion-label>
+        </div>
+
           </ion-list>
         </ion-col>
       </ion-row>

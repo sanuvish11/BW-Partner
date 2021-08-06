@@ -1,0 +1,191 @@
+<ion-header>
+  <ion-toolbar class="tool">
+   <ion-buttons slot="start" >
+      <ion-menu-button class="manu_btn" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{languageService.family_details_lang}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="px-10">
+  
+    <ion-grid class="form-style">
+     
+      <ion-row>
+        <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">{{languageService.father_name_lang}}</ion-label>
+              <ion-input
+                name="FATHER_NAME"
+                required
+                [ngModel]="familyData.FATHER_NAME"
+                formControlName="FATHER_NAME"
+              ></ion-input>
+            </ion-item>
+            <ion-item class="validation" *ngIf="submitted && f('FATHER_NAME').hasError('required')"
+                lines="none">
+                <ion-label *ngIf="f('FATHER_NAME').hasError('required')"  class="validation">
+                  {{languageService.cant_empty_for_lang}}
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Father Age</ion-label>
+                <ion-input
+                  name="FATHER_AGE"
+                  required
+                  [ngModel]="familyData.FATHER_AGE"
+                  formControlName="FATHER_AGE"
+                ></ion-input>
+              </ion-item>
+    
+            <ion-item>
+              <ion-label position="floating">{{languageService.mother_name_lang}}</ion-label>
+              <ion-input
+                name="MOTHER_NAME"
+                [ngModel]="familyData.MOTHER_NAME"
+                required
+                formControlName="MOTHER_NAME"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Mother Age</ion-label>
+              <ion-input
+                name="MOTHER_AGE"
+                required
+                [ngModel]="familyData.MOTHER_AGE"
+                formControlName="MOTHER_AGE"
+              ></ion-input>
+            </ion-item>
+            <ion-item *ngIf="submitted && f('MOTHER_NAME').hasError('required')"
+                lines="none" class="validation">
+                <ion-label *ngIf="f('MOTHER_NAME').hasError('required')"  >
+                  {{languageService.cant_empty_for_lang}}
+                </ion-label>
+              </ion-item>
+    
+            <ion-item>
+              <ion-label position="floating">{{languageService.wife_name_lang}}</ion-label>
+              <ion-input
+                name="WIFE_NAME"
+                [ngModel]="familyData.WIFE_NAME"
+                required
+                formControlName="WIFE_NAME"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Wife Age</ion-label>
+              <ion-input
+                name="WIFE_AGE"
+                required
+                [ngModel]="familyData.WIFE_AGE"
+                formControlName="WIFE_AGE"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item class="validation" *ngIf="submitted && f('WIFE_NAME').hasError('required')"
+                lines="none">
+                <ion-label *ngIf="f('WIFE_NAME').hasError('required')"  class="validation">
+                  {{languageService.cant_empty_for_lang}}
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child 1</ion-label>
+                <ion-input
+                  name="CHILD_NAME1"
+                  required
+                  [ngModel]="familyData.CHILD_NAME1"
+                  formControlName="CHILD_NAME1"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child AGE</ion-label>
+                <ion-input
+                  name="CHILD_AGE1"
+                  required
+                  [ngModel]="familyData.CHILD_AGE1"
+                  formControlName="CHILD_AGE1"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child 2</ion-label>
+                <ion-input
+                  name="CHILD_NAME2"
+                  required
+                  [ngModel]="familyData.CHILD_NAME2"
+                  formControlName="CHILD_NAME2"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child AGE</ion-label>
+                <ion-input
+                  name="CHILD_AGE2"
+                  required
+                  [ngModel]="familyData.CHILD_AGE2"
+                  formControlName="CHILD_AGE2"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child 3</ion-label>
+                <ion-input
+                  name="CHILD_NAME3"
+                  required
+                  [ngModel]="familyData.CHILD_NAME3"
+                  formControlName="CHILD_NAME3"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child AGE</ion-label>
+                <ion-input
+                  name="CHILD_AGE3"
+                  required
+                  [ngModel]="familyData.CHILD_AGE3"
+                  formControlName="CHILD_AGE3"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child 4</ion-label>
+                <ion-input
+                  name="CHILD_NAME4"
+                  required
+                  [ngModel]="familyData.CHILD_NAME4"
+                  formControlName="CHILD_NAME4"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Child AGE</ion-label>
+                <ion-input
+                  name="CHILD_AGE4"
+                  required
+                  [ngModel]="familyData.CHILD_AGE4"
+                  formControlName="CHILD_AGE4"
+                ></ion-input>
+              </ion-item>
+
+              <ion-col size-sm="6" offset-sm="3">
+                <ion-button class="ion-margin-vertical" type="submit" class="btn-primary" expand="block">Submit</ion-button>
+               </ion-col>
+          </ion-list>
+        </ion-col>
+      </form>
+      </ion-row>
+    
+      
+    </ion-grid>
+  
+</div>
+</ion-content>

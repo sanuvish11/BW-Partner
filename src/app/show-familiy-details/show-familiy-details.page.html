@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Family Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col col-12 col-xl-2 col-lg-3 col-md-4>
+      <ng-container *ngIf="!spinner">
+        <ion-row>
+          <ion-col size="11">
+            <ion-label class="daddres ion-margin-vertical ion-margin-horizontal">Family Details</ion-label>
+          </ion-col>
+          <ion-col [routerLink]="['/edit-family-details/', userId]" size="1">
+            <ion-icon name="pencil" class="iconadd  ion-margin-horizontal ion-float-right" >
+            </ion-icon>
+          </ion-col>
+          
+          </ion-row>
+
+          <div>
+            <ion-row class="name">Father Name- {{familyData.FATHER_NAME}}</ion-row>
+            <ion-row class="name">Father Age- {{familyData.FATHER_AGE}}</ion-row>
+            <div >
+              <ion-row class="addres">Mother Name - {{familyData.MOTHER_NAME}}</ion-row>
+              <ion-row class="addres">Mother Age - {{familyData.MOTHER_AGE}}</ion-row>
+            </div>
+            <ion-row class="pin">Wife Name - {{familyData.WIFE_NAME}}</ion-row>
+            <ion-row class="pin">Wife Age - {{familyData.WIFE_AGE}}</ion-row>
+           
+           
+            <ion-row style="margin-top:10px;"  >
+              
+              <ion-label class="mobile">Child Name :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_NAME1}}</ion-label>
+
+              <ion-label class="mobile">Child Age :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_AGE1}}</ion-label>
+
+              <ion-label class="mobile">Child Name :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_NAME2}}</ion-label>
+
+              <ion-label class="mobile">Child Age :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_AGE2}}</ion-label>
+
+              <ion-label class="mobile">Child Name :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_NAME3}}</ion-label>
+
+              <ion-label class="mobile">Child Age :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_AGE3}}</ion-label>
+
+              <ion-label class="mobile">Child Name :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_NAME4}}</ion-label>
+
+              <ion-label class="mobile">Child Age :</ion-label>
+              <ion-label class="number">{{familyData.CHILD_AGE4}}</ion-label>
+
+              
+            </ion-row>
+          </div>
+    
+     
+      
+       </ng-container>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

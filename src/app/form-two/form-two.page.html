@@ -25,6 +25,7 @@
                 formControlName="pincode"
               ></ion-input>
             </ion-item>
+          
             <ion-item class="validation" *ngIf="submitted && f('pincode').hasError('required')"
                 lines="none">
                 <ion-label *ngIf="f('pincode').hasError('required')"  class="validation">
@@ -96,6 +97,22 @@
           <ion-label *ngIf="f('area').hasError('required')"  class="validation">
             {{languageService.cant_empty_for_lang}}
           </ion-label>
+        </ion-item>
+
+        <ion-item lines="none" class="ion-margin-bottom custome-select">
+          <ion-label class="ion-margin-bottom" position="stacked"
+            >Cast</ion-label
+          >
+          <select
+            formControlName="cast"
+            name="cast"
+            class="required"
+          >
+            <option value="" disabled selected>Select Location</option>
+            <option *ngFor="let cast of castData" [ngValue]="cast">
+              {{cast}}
+            </option>
+          </select>
         </ion-item>
     
            

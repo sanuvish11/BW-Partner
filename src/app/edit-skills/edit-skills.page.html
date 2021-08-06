@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-buttons slot="start" >
+      <ion-menu-button class="manu_btn" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Experience </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="px-10">
+      <ion-grid class="form-style">
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <ion-list>
+                <ion-item lines="none" class="ion-margin-bottom custome-select">
+                  <ion-label class="ion-margin-bottom" position="stacked"
+                    >{{languageService.skill_for_lang}}</ion-label
+                  >
+                  <select
+                    (change)="getCoreSkills()"
+                    formControlName="SKILLS"
+                    name="skills"
+                    [ngModel]="skills"
+                    class="required"
+                  >
+                    <option value="{{skills}}" disabled selected>{{skills}}</option>
+                    <option *ngFor="let skills of allSkills"  [ngValue]="skills">
+                      {{skills.JOB_NAME_HINDI}}
+                    </option>
+                  </select>
+                </ion-item>
+                <ion-item
+                  *ngIf="submitted && f('SKILLS').hasError('required')"
+                  lines="none"
+                  class="validation"
+                >
+                  <ion-label
+                    *ngIf="f('SKILLS').hasError('required')"
+                    class="validation"
+                  >
+                    {{languageService.cant_empty_for_lang}}
+                  </ion-label>
+                </ion-item>
+
+                <div>
+                  <ion-item lines="none">
+                    <ion-label
+                      class="ion-margin-bottom"
+                      style="font-size: 20px"
+                      position="stacked"
+                      >{{languageService.coreSkill_for_lang}}</ion-label
+                    >
+                  </ion-item>
+
+                  <ion-item lines="none" *ngFor="let area of allCoreSkills">
+                    <ion-label>{{area.WORK_AREA_HINDI}}</ion-label>
+                    <ion-checkbox
+                      color="danger"
+                      [(ngModel)]="area.WORK_AREA_HINDI"
+                      name="area"
+                      value="area.WORK_AREA_HINDI"
+                      formControlName="SKILLS"
+                      (ionChange)="onCoreSkillChecked($event)"
+                    >
+                    </ion-checkbox>
+                  </ion-item>
+
+                  <ion-item
+                    *ngIf="showCoreError"
+                    lines="none"
+                    class="validation"
+                  >
+                    <ion-label class="validation">
+                      {{languageService.cant_empty_for_lang}}
+                    </ion-label>
+                  </ion-item>
+                </div>
+
+                <div>
+                  <ion-item lines="none">
+                    <ion-label
+                      class="ion-margin-bottom"
+                      style="font-size: 20px"
+                      position="stacked"
+                      >{{languageService.workExpe_for_lang}}</ion-label
+                    >
+                  </ion-item>
+                  
+                  <ion-item lines="none" *ngFor="let skills of allWorkExpe">
+                    <ion-label>{{skills.WORK_EXPE_HINDI}}</ion-label>
+                    <ion-checkbox
+                      color="danger"
+                      value="area.WORK_EXPE_HINDI"
+                      formControlName="SKILLS"
+                      (ionChange)="onExperienceChecked($event)"
+                    >
+                    </ion-checkbox>
+                  </ion-item>
+
+                  <ion-item *ngIf="showExError" lines="none" class="validation">
+                    <ion-label class="validation">
+                      {{languageService.cant_empty_for_lang}}
+                    </ion-label>
+                  </ion-item>
+                </div>
+
+                <ion-button
+                  class="ion-margin-vertical"
+                  type="submit"
+                  class="btn-primary"
+                  expand="block"
+                  >Continue</ion-button
+                >
+              </ion-list>
+            </form>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </div>
+</ion-content>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, ParamMap, Router } from "@angular/router";
-import { AlertController } from "@ionic/angular";
+import { AlertController, LoadingController } from "@ionic/angular";
 import { ApiService } from "../services/api.service";
 import { FormsService } from "../services/forms.service";
 import { LanguageService } from "../services/language.service";
@@ -15,7 +15,9 @@ export class OtpPage implements OnInit {
   submitted: boolean = false;
   showError: boolean = false;
   status: string;
+  otpValue: string;
   moNumber: string;
+  refferal_code: any;
   form = new FormGroup({
     otp: new FormControl("", [
       Validators.required,
@@ -28,12 +30,30 @@ export class OtpPage implements OnInit {
      private languageService: LanguageService,
      private formService: FormsService,
      public alertController: AlertController,
-     private route: ActivatedRoute) {}
+     private route: ActivatedRoute,
+     public loadingController: LoadingController) {}
+
+
+     async getLoader(){
+        const loading = await this.loadingController.create({
+          message: 'Please wait for the otp...',
+          duration: 3000
+        });
+  
+        await loading.present();
+     }
 
   ngOnInit() {
     this.languageService._translateLanguage();
     this.moNumber = localStorage.getItem('moNumber');
+    this.refferal_code = localStorage.getItem('refferalCode');
     console.log(this.moNumber)
+
+    setTimeout(() => {
+      this.getLoader();
+      this.otpValue = localStorage.getItem('otp');
+      this.form.value.otp = this.otpValue;
+    }, 50)
   }
 
   ionViewWillEnter() {
@@ -42,6 +62,9 @@ export class OtpPage implements OnInit {
         this.status = paramMap.get("status");
       }
     });
+
+   
+
   }
 
   
@@ -87,26 +110,28 @@ export class OtpPage implements OnInit {
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
   }
-
+  
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
     console.log(this.form.get("otp").value)
+    console.log(localStorage.getItem('refferalCode'));
     this.apiService.verifyOtp({
       "mobileNo": this.moNumber,
-      "otp": this.form.get('otp').value
-  })
-    .subscribe((res: any) => {
+      "otp": this.form.get('otp').value,
+      referral_code: localStorage.getItem('refferalCode')
+  }).subscribe((res: any) => {
       console.log(res);
+      localStorage.setItem('refferalCode', res.data.referral_code)
+      localStorage.setItem('walletAmount', res.data.wallet_amount)
       localStorage.setItem('userId', res.data._id);
-      if(res.status === 200){
-       
-        this.router.navigate(["/form-one"]);
+      if(this.status === "201"){
+        this.router.navigate(["/dashboard"]);
       }
       else{
-        this.presentAlert2();
+        this.router.navigate(["/form-one"]);
       }
     },(err) => {
       console.log(err)
@@ -116,3 +141,4 @@ export class OtpPage implements OnInit {
     });
   }
 }
+// 7897987987

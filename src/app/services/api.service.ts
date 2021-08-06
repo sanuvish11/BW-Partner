@@ -4,6 +4,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { SubUsers } from './../Models/subUsers';
 import { BwUsers } from '../Models/bwUsers';
+import { UserBankDetails } from '../Models/userBankDetails';
+import { FamilyDetails } from '../Models/familyDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +25,9 @@ export class ApiService {
       'Content-Type': 'application/json',
     })
   };
-  // baseUrl= 'http://localhost:3000/';
-  baseUrl= 'https://bw-partner-server.herokuapp.com/';
+  baseUrlForLocal= 'http://localhost:3001/';
+  baseUrl= 'https://bw-app-server.herokuapp.com/';
+  // ahmadAccount = 'https://bw-app-server.herokuapp.com/';
   constructor(private http: HttpClient, private router: Router) { }
 
 createUser(email: string, password: string) {
@@ -37,6 +40,14 @@ createUser(email: string, password: string) {
       (err: any) => {
         console.log(err);
       });
+  }
+
+  logOut(){
+    localStorage.removeItem('userId');
+    localStorage.removeItem('refferalCode');
+    localStorage.removeItem('walletAmount');
+    localStorage.removeItem('moNumber');
+    this.router.navigate(['/login']);
   }
 
   login(email: string, password: string) {
@@ -168,12 +179,14 @@ createUser(email: string, password: string) {
   }
 
   verifyOtp(verify_otp: any){
+    console.log(verify_otp)
     return this.http.post(this.baseUrl + "api/forms/verify_otp", verify_otp,this.httpOptions);
   }
 
 
   updateImagesById(id: string, photofile: any){
-    return this.http.post(this.baseUrl + "api/forms/imageupdate/" + id, photofile,this.httpOptions);
+    const headers = new HttpHeaders().set("Accept", 'multipart/form-data; charset=utf-8');
+    return this.http.post(this.baseUrl + "api/forms/imageupdate/" + id, photofile, {headers});
   }
 
   getBwUsersById(id: string){
@@ -184,4 +197,81 @@ createUser(email: string, password: string) {
     return this.http.get(this.baseUrl + "api/allIndiaPostal/getAllIndiaPin/" + pincode,this.httpOptions);
   }
 
+  getAllNotifications(){
+    return this.http.get(this.baseUrl + "api/notification/getAll");
+  }
+
+  updateNotificationData(id: any, notiData: any){
+    return this.http.post(this.baseUrl + "api/notification/update/" + id, notiData);
+  }
+
+  saveBankDetails(bankDetails: UserBankDetails){ 
+     this.http.post(this.baseUrl + "api/bankDetails/save", bankDetails)
+     .subscribe((res: UserBankDetails) => {
+       console.log(res);
+       if(res){
+         this.router.navigate(['/show-bank-details']);
+       }
+     },(err => { console.log(err) }));
+  }
+
+  updateBankDetailsById(userId: string, formData: UserBankDetails){
+    this.http.post(this.baseUrl+ "api/bankDetails/update/" + userId, formData)
+    .subscribe((data => { 
+      console.log(data)
+      if(data){
+        this.router.navigate(['/show-bank-details']);
+      }
+    }), (err => {console.log(err)} ));
+  }
+
+  getBankDetailsById(userId: string){
+    return this.http.get(this.baseUrl + "api/bankDetails/" + userId);
+  }
+
+  saveFamilyDetails(userFamilyDetails: FamilyDetails){
+    this.http.post("https://bw-app-server.herokuapp.com/api/familyDetail/save", userFamilyDetails)
+    .subscribe((res: FamilyDetails) => {
+      console.log(res);
+      if(res){
+        this.router.navigate((['/show-family-details']));
+      }
+    },(err =>{console.log(err)}));
+  }
+
+  getFamilyDetailsById(userId: string){
+    return this.http.get(this.baseUrl + "api/familyDetail/" + userId);
+  }
+
+  verifyRefferalCode(refferalCode: string){
+    return this.http.get(this.baseUrl + "api/forms/reffral/" + refferalCode);
+  }
+
+  saveUserNotification(userData: any){
+    this.http.post(this.baseUrl + "api/userNotification/save", userData)
+      .subscribe((res: any) => {
+        console.log(res);
+      }, (err => {console.log(err)}));
+  }
+
+  getUserNotiData(){
+    return this.http.get(this.baseUrl + "api/userNotification/getAll");
+  }
+
+  updateUserNotiData(id: string, formData: any){
+    this.http.post(this.baseUrl + "api/userNotification/update/" + id, formData)
+      .subscribe((res: any) => {
+        console.log(res);
+      }, (err => {console.log(err)}));
+  }
+
+  updateFamilyDetails(userId: string, formData: any){
+    this.http.post(this.baseUrl + "api/familyDetail/update/" + userId, formData)
+    .subscribe((res: any) => {
+      console.log(res);
+      if(res){
+        this.router.navigate(['/show-family-details'])
+      }
+    }, (err => {console.log(err)}));
+  } 
 }

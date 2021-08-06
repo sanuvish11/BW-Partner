@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { BwUsers } from '../Models/bwUsers';
 import { LanguageService } from '../services/language.service';
 import { ApiService } from '../services/api.service';
+import { AgeValidators } from '../custum-validation/age-validation';
+
+
 
 @Component({
   selector: 'app-form-two',
@@ -22,6 +25,9 @@ export class FormTwoPage implements OnInit {
   showAreasValues: boolean = false;
   autoState: any = '';
   usersData: BwUsers = new BwUsers();
+  dateValidation: boolean = false;
+  castData = ["सामान्‍य", "पिछड़ा वर्ग", "अनुसूचित जाति", "अनुसूचित जनजाति"]
+
   form = new FormGroup({
     moNumber: new FormControl(''),
     adharNumber: new FormControl(''),
@@ -30,7 +36,7 @@ export class FormTwoPage implements OnInit {
     lastName: new FormControl(''),
     date_of_birth: new FormControl(''),
     fatherName: new FormControl(''),
-
+    cast: new FormControl('', [Validators.required]),
     address1: new FormControl('', [Validators.required]),
     address2: new FormControl('', [Validators.required]),
     address3: new FormControl('', [Validators.required]),
@@ -54,6 +60,11 @@ export class FormTwoPage implements OnInit {
     this.getUserById();
   }
 
+    dateget(value){
+      console.log(value);
+    }
+
+    
   getUserById(){
     console.log(this.usersData)
     this.apiService.getBwUsersById(this.usersData._id).subscribe((res: any) => {

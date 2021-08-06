@@ -32,6 +32,21 @@
 		"address_proof": "एड्रेस प्रूफ फोटो",
 		"cant_empty": "खाली नहीं हो सकता",
 		"moValidation": "10 अंक लंबा होना चाहिए",
-		"mo_only_number": "वैल्यू एक नंबर होना चाइये"
+		"mo_only_number": "वैल्यू एक नंबर होना चाइये",
+
+		"family_details": "पारिवारिक विवरण",
+		"father_name": "पिता का नाम",
+		"mother_name": "मां का नाम",
+		"wife_name": "पत्नी का नाम",
+		"child_name": "बच्चे का नाम",
+
+		"account_details": "खाता विवरण",
+		"acount_name": "खाता धारक का नाम",
+		"account_number": "खाता अंक",
+		"re_account_number": "खाता अंक पुनः टाइप करें",
+		"ifsc_code": "आई एफ एस सी कोड",
+		"mobile_number": "मोबाइल नंबर"
+
+
 	}
 }

@@ -39,6 +39,20 @@ export class LanguageService {
   cant_empty_for_lang: string;
   moValidation: string;
   mo_must_number: string;
+
+  family_details_lang: string;
+  father_name_lang: string;
+  mother_name_lang: string;
+  wife_name_lang: string;
+  child_name_lang: string;
+
+  account_details_lang: string;
+  account_number_lang: string;
+  re_account_number_lang: string;
+  ifsc_code_lang: string;
+  mobile_number_lang: string;
+  account_holder_lang: string;
+
   constructor(
     private _translate: TranslateService,
     public navCtrl: NavController
@@ -79,5 +93,19 @@ export class LanguageService {
     this.cant_empty_for_lang = this._translate.instant("formData.cant_empty");
     this.moValidation = this._translate.instant("formData.moValidation");
     this.mo_must_number = this._translate.instant("formData.mo_only_number");
+
+    this.family_details_lang = this._translate.instant("formData.family_details");
+    this.father_name_lang = this._translate.instant("formData.father_name");
+    this.mother_name_lang = this._translate.instant("formData.mother_name");
+    this.wife_name_lang = this._translate.instant("formData.wife_name");
+    this.child_name_lang= this._translate.instant("formData.child_name");
+
+    this.account_details_lang = this._translate.instant("formData.account_details");
+    this.account_holder_lang = this._translate.instant("formData.acount_name");
+    // this.account_details_lang = this._translate.instant("formData.account_details");
+    this.account_number_lang = this._translate.instant("formData.account_number");
+    this.re_account_number_lang = this._translate.instant("formData.re_account_number");
+    this.ifsc_code_lang = this._translate.instant("formData.ifsc_code");
+    this.mobile_number_lang = this._translate.instant("formData.mobile_number");
   }
 }

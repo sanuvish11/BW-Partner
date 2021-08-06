@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "MyApp",
-  "short_name": "MyApp",
+  "name": "Bharat Worker",
+  "short_name": "Bharat Worker",
   "version": "io.ionic.starter",
   "description": "An awesome Ionic/Cordova app.",
   "author": "Ionic Framework Team",
   "icons": [],
-  "start_url": "http://192.168.56.87:8100"
+  "start_url": "http://192.168.11.87:8101"
 }

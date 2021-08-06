@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { Camera } from '@ionic-native/camera/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -29,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   }),
   IonicModule.forRoot(), AppRoutingModule],
   providers: [Camera,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SocialSharing],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

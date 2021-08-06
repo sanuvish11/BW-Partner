@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-menu-button class="manu_btn" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+      <div>
+       <h5 class="show_head"> {{showStatus}}</h5>
+      </div>
+
+      <ion-item class="make_color">
+        <ion-icon routerLink="/notification" name="notifications-sharp" class="ion-margin-start"></ion-icon>
+        <ion-icon routerLink="/message" name="chatbox-ellipses-sharp" class="ion-margin-start"></ion-icon>
+      </ion-item>
+      
+    <ion-buttons slot="end" >
+      <ion-toggle (ionChange)="changeStatusValue($event)" ></ion-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>

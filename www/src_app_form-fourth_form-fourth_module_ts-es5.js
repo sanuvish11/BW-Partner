@@ -531,7 +531,6 @@
               return;
             }
 
-            console.log(this.multipleImageUpload);
             var formData = new FormData();
 
             var _iterator = _createForOfIteratorHelper(this.multipleImageUpload),
@@ -549,6 +548,8 @@
               _iterator.f();
             }
 
+            console.log(this.form.value);
+            this.router.navigate(["/dashboard"]);
             this.apiService.updateImagesById(localStorage.getItem('userId'), formData).subscribe(function (data) {
               console.log(data);
 
@@ -557,10 +558,9 @@
 
                 _this5.formService.updateFormData(localStorage.getItem('userId'), _this5.form.value).subscribe(function (data) {
                   if (data) {
-                    console.log("update details working");
                     _this5.multipleImageUpload = [];
 
-                    _this5.router.navigate(["/login"]);
+                    _this5.router.navigate(["/dashboard"]);
                   }
                 });
               }

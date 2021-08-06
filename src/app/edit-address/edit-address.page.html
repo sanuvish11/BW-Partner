@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar class="tool">
+    <ion-buttons slot="start" >
+      <ion-menu-button class="manu_btn" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{languageService.perInform_for_lang}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="px-10">
+  <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+    <ion-grid class="form-style">
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+             <ion-item>
+              <ion-label position="floating">{{languageService.address1_for_lang}}</ion-label>
+              <ion-input formControlName="address1"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="submitted && f('address1').hasError('required')"
+            lines="none" class="validation">
+            <ion-label *ngIf="f('address1').hasError('required')"  class="validation">
+              {{languageService.cant_empty_for_lang}}
+            </ion-label>
+          </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">{{languageService.address2_for_lang}}</ion-label>
+              <ion-input formControlName="address2"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="submitted && f('address2').hasError('required')"
+            lines="none" class="validation">
+            <ion-label *ngIf="f('address2').hasError('required')"  class="validation">
+              {{languageService.cant_empty_for_lang}}
+            </ion-label>
+          </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">{{languageService.address3_for_lang}}</ion-label>
+              <ion-input formControlName="address3"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="submitted && f('address3').hasError('required')"
+            lines="none" class="validation">
+            <ion-label *ngIf="f('address3').hasError('required')"  class="validation">
+              {{languageService.cant_empty_for_lang}}
+            </ion-label>
+          </ion-item>
+
+         
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+         <ion-button class="ion-margin-vertical" type="submit" class="btn-primary" expand="block">Continue</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</div>
+</ion-content>

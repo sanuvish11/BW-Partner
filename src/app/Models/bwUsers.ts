@@ -17,6 +17,7 @@ export class BwUsers {
     SKILLS: string = '';
     CORE_SKILLS: any[] = [];
     postal_area: any = '';
+    online_user: any = null;
     WORK_EXPERIENCE: any[] = [];
     imagePath: any[] = [];
 }

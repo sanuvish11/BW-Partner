@@ -3576,6 +3576,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  */
 
+window.global = window;
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */

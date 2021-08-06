@@ -68,7 +68,6 @@ export class FormThreePage implements OnInit {
     this.moNumber = localStorage.getItem('moNumber');
     this.languageService._translateLanguage();
     this.formService.getAllJobs().subscribe((data: any) => {
-      console.log(data);
       data.formData.forEach((res: any) => {
         this.allSkills.push(res);
       });
@@ -80,26 +79,23 @@ export class FormThreePage implements OnInit {
 
   getUserById(){
     this.apiService.getBwUsersById(this.usersData._id).subscribe((res: any) => {
-      console.log(res);
       this.usersData = res.data;
-      this.form.value.SKILLS = this.usersData.SKILLS
-      console.log(this.usersData)
+      this.form.value.SKILLS = this.usersData.SKILLS;
     },(err => console.log(err)))
   }
 
 
   getCoreSkills() {
+    this.areaOfWork = [];
+    this.workExperiece = [];
     let skillsData = this.form.get("SKILLS").value;
-    console.log(skillsData)
     this.form.value.SKILLS = skillsData.JOB_NAME_HINDI;
-    console.log(this.form.value.SKILLS)
     this.getCoreSkillsData(skillsData._id);
   }
 
   getCoreSkillsData(jobId) {
     this.formService.getCoreSkillsById(jobId).subscribe(
       (res: any) => {
-        console.log(res);
         this.areaOfWork = res;
       },
       (err) => {
@@ -109,13 +105,10 @@ export class FormThreePage implements OnInit {
   }
 
   onCoreSkillChecked(checkValue) {
-    console.log(checkValue);
     if (checkValue.detail.checked === true) {
       this.showCoreError = false;
-      console.log(this.isChecked);
       this.getWorkExpe(checkValue.detail.value._id);
       this.SKILLS.push(checkValue.detail.value);
-      console.log(this.SKILLS);
     } else {
       this.showCoreError = true;
       this.workExperiece = [];
@@ -127,9 +120,7 @@ export class FormThreePage implements OnInit {
   }
 
   getWorkExpe(skillId) {
-    console.log(skillId);
     this.formService.getSkillsById(skillId).subscribe((data: any) => {
-      console.log(data);
       data.forEach((res: any) => {
         this.workExperiece.push(res);
       });
@@ -137,10 +128,8 @@ export class FormThreePage implements OnInit {
   }
 
   onExperienceChecked(skillValue) {
-    console.log(skillValue);
     if (skillValue.detail.checked === true) {
       this.mainSkills.push(skillValue.detail.value);
-      console.log(this.mainSkills);
       this.showExError = false;
     } else {
       this.showExError = true;
@@ -157,7 +146,6 @@ export class FormThreePage implements OnInit {
   }
 
   coreSkills() {
-    console.log(this.coreSkillsData);
     return this.fb.group({
       SKILLS: this.coreSkillsData,
     });
@@ -185,7 +173,6 @@ export class FormThreePage implements OnInit {
     this.submitted = true;
     this.form.value.CORE_SKILLS = this.SKILLS;
     this.form.value.WORK_EXPERIENCE = this.mainSkills;
-    console.log(this.form.value)
     if(this.form.invalid){
       return;
     }
@@ -200,7 +187,6 @@ export class FormThreePage implements OnInit {
     this.setFormValues();
     this.form.value.CORE_SKILLS = this.SKILLS;
     this.form.value.WORK_EXPERIENCE = this.mainSkills;
-    console.log(this.form.value);
     setTimeout(() => {
       this.formService.updateFormData(localStorage.getItem('userId'), this.form.value)
       .subscribe((data: any) => {

@@ -351,12 +351,13 @@ let FormFourthPage = class FormFourthPage {
         else if (this.showError == true) {
             return;
         }
-        console.log(this.multipleImageUpload);
         const formData = new FormData();
         for (let img of this.multipleImageUpload) {
             console.log('under array');
             formData.append("images", img);
         }
+        console.log(this.form.value);
+        this.router.navigate(["/dashboard"]);
         this.apiService.updateImagesById(localStorage.getItem('userId'), formData).subscribe((data) => {
             console.log(data);
             if (data) {
@@ -365,9 +366,8 @@ let FormFourthPage = class FormFourthPage {
                     .updateFormData(localStorage.getItem('userId'), this.form.value)
                     .subscribe((data) => {
                     if (data) {
-                        console.log("update details working");
                         this.multipleImageUpload = [];
-                        this.router.navigate(["/login"]);
+                        this.router.navigate(["/dashboard"]);
                     }
                 });
             }

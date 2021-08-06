@@ -103,10 +103,8 @@
           <ion-label position="floating">{{languageService.middleName_for_lang}}</ion-label>
           <ion-input
             name="middleName"
-            required
             formControlName="middleName"
             [ngModel]="usersData.middleName"
-            
           ></ion-input>
         </ion-item>
 
@@ -134,6 +132,13 @@
           <ion-datetime [ngModel]="usersData.date_of_birth" displayFormat="DD-MMM-YYYY" formControlName="date_of_birth"  placeholder="06/05/1998"></ion-datetime>
         </ion-item>
 
+        <ion-item class="validation"
+        lines="none"  *ngIf="f('date_of_birth').hasError('restrictAge')">
+        <ion-label  class="validation">
+          Age Must be greater than 18
+        </ion-label>
+      </ion-item>
+
         <div  *ngIf="submitted && f('date_of_birth').hasError('required')"
         lines="none">
         <ion-label *ngIf="f('date_of_birth').hasError('required')" class="validation">
@@ -157,6 +162,22 @@
           {{languageService.cant_empty_for_lang}}
         </ion-label>
       </div>
+
+      <ion-item lines="none" class="ion-margin-bottom custome-select">
+        <ion-label class="ion-margin-bottom" position="stacked"
+          >Gender</ion-label
+        >
+        <select
+          formControlName="gender"
+          name="gender"
+          class="required"
+        >
+          <option value="" disabled selected>Select Location</option>
+          <option *ngFor="let gender of genderData" [ngValue]="gender">
+            {{gender}}
+          </option>
+        </select>
+      </ion-item>
 
           </ion-list>
         </ion-col>

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { BwUsers } from '../Models/bwUsers';
 import { LanguageService } from '../services/language.service';
 import { ApiService } from '../services/api.service';
+import { AgeValidators } from '../custum-validation/age-validation';
 
 @Component({
   selector: 'app-form-one',
@@ -14,14 +15,16 @@ import { ApiService } from '../services/api.service';
 export class FormOnePage implements OnInit {
   submitted: boolean = false;
   moNumber: string;
+  genderData = ["Male", "Female", "Transgender"];
   usersData: BwUsers = new BwUsers();
   form = new FormGroup({
     moNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10),  Validators.pattern("^[0-9]*$")]),
     adharNumber: new FormControl('', [Validators.required, Validators.minLength(12), Validators.maxLength(12),  Validators.pattern("^[0-9]*$")]),
     firstName: new FormControl('', [Validators.required]),
     middleName: new FormControl(''),
+    gender: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
-    date_of_birth: new FormControl('', [Validators.required]),
+    date_of_birth: new FormControl('', [Validators.required, AgeValidators.restrictAge]),
     fatherName: new FormControl('', [Validators.required]),
 
     address1: new FormControl(''),
@@ -31,7 +34,6 @@ export class FormOnePage implements OnInit {
     city: new FormControl(''),
     state: new FormControl(''),
     pincode: new FormControl(''),
-
     SKILLS: new FormControl(""),
     CORE_SKILLS: new FormArray([]),
     WORK_EXPERIENCE: new FormArray([]),
@@ -94,6 +96,7 @@ export class FormOnePage implements OnInit {
     this.form.value.CORE_SKILLS = this.usersData.CORE_SKILLS;
     this.form.value.WORK_EXPERIENCE = this.usersData.WORK_EXPERIENCE;
   }
+ 
 
   onSubmit(){
     this.submitted = true;

@@ -53,7 +53,7 @@
  */
 
 import './zone-flags';
-
+(window as any).global = window;
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */

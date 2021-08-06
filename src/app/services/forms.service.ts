@@ -14,7 +14,7 @@ export class FormsService {
   workExpe_for_lang: string;
   moNumber_for_lang: string;
   otp_for_lang: string;
-  baseUrl= 'https://bw-partner-server.herokuapp.com/';
+  baseUrl= 'https://bw-app-server.herokuapp.com/';
   // baseUrl= 'http://localhost:3000/';
  
   private language: string = "hin";
