@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu menuId="main-menu" content-id="main">
+  <ion-menu menuId="main-menu" content-id="main" class="sidenav">
     <ion-header>
       <ion-toolbar>
         <ion-title>Bharat Worker</ion-title>
@@ -14,65 +14,68 @@
       <ion-list lines="none">
         
         <ion-item  class="ionitomc" routerLink="/dashboard" (click)="openEnd()" >
-          <ion-icon name="home" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="home-outline" slot="start"></ion-icon>
           <ion-label  class="alllabel">HOME</ion-label>
         </ion-item>
     
         <ion-item routerLink="/wallet" class="ionitomc"  (click)="openEnd()" >
-          <ion-icon name="cart" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="wallet-outline" slot="start"></ion-icon>
           <ion-label class="alllabel" >My Wallet</ion-label>
         </ion-item>
 
-      
+        <ion-item routerLink="/my-team" class="ionitomc"  (click)="openEnd()" >
+          <ion-icon name="people-circle-outline"></ion-icon>
+          <ion-label class="alllabel" >My Team</ion-label>
+        </ion-item>
 
         <ion-item class="ionitomc" routerLink="/family-details" (click)="openEnd()">
-          <ion-icon name="log-in-sharp" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="people-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Add Family Details</ion-label>
         </ion-item>
 
         <ion-item class="ionitomc" routerLink="/user-page" (click)="openEnd()">
-          <ion-icon name="log-in-sharp" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">User Page</ion-label>
         </ion-item>
 
         <ion-item class="ionitomc" routerLink="/bank-details" (click)="openEnd()"  button >
-          <ion-icon name="log-in-sharp" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="help-buoy-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Add Bank Details</ion-label>
         </ion-item>
 
         <ion-item class="ionitomc" routerLink="/show-family-details" (click)="openEnd()"  button >
-          <ion-icon name="log-in-sharp" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="people-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Show Family Details</ion-label>
         </ion-item>
 
         <ion-item class="ionitomc"  button (click)="share()" (click)="openEnd()">
-          <ion-icon name="share-social-sharp"  slot="start" id="iicons"></ion-icon>
+          <ion-icon name="person-add-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Invite</ion-label>
         </ion-item>
 
         <ion-item class="ionitomc"  button routerLink="/edit-skills"  (click)="openEnd()">
-          <ion-icon name="share-social-sharp"  slot="start" id="iicons"></ion-icon>
+          <ion-icon name="create-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Edit Skills</ion-label>
         </ion-item>
 
         <ion-item class="ionitomc"  button routerLink="/show-bank-details"  (click)="openEnd()">
-          <ion-icon name="share-social-sharp"  slot="start" id="iicons"></ion-icon>
+          <ion-icon name="help-buoy-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Show Bank Details</ion-label>
         </ion-item>
 
         <ion-item class="ionitomc"  button routerLink="/edit-address"  (click)="openEnd()">
-          <ion-icon name="share-social-sharp"  slot="start" id="iicons"></ion-icon>
+          <ion-icon name="locate-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Edit Address</ion-label>
         </ion-item>
 
 
         <ion-item  (click)="openEnd()"  class="ionitomc" lines="none" >
-          <ion-icon name="notifications" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="settings-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Settings</ion-label>
         </ion-item>  
 
         <ion-item class="ionitomc" button (click)="openEnd()" (click)="apiService.logOut()" >
-          <ion-icon name="document-text" slot="start" id="iicons"></ion-icon>
+          <ion-icon name="log-in-outline" slot="start"></ion-icon>
           <ion-label class="alllabel">Logout</ion-label>
         </ion-item>
         <!-- <ion-item class="ionitomc">

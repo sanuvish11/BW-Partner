@@ -1,19 +1,156 @@
-<ion-header>
+<ion-header class="header-section ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text=""></ion-back-button>
+      <ion-menu-button class="manu_btn">
+        <img src="./assets/images/user-profile.png">
+      </ion-menu-button>
     </ion-buttons>
-    <ion-title>My Wallet</ion-title>
+    <ion-title>My Wallat</ion-title>
+    <ion-button slot="end" class="qrcode">
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
+  <div class="wallatbalance">
+    <ion-row>
+      <ion-col class="ion-text-center balance-amount">
+        <h3>वर्तमान उपलब्ध राशि (रू)</h3>
+        <div class="balance"><img src="./assets/images/rupee.svg"/> {{walletAmount}}</div>
+      </ion-col>
+      <ion-col class="trans-bank">
+        <ion-button>
+          <ion-icon name="business-outline" slot="start"></ion-icon>
+          <ion-label>राशि अपने खाते में भेजें</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-item lines="none" class="reffrals">
+    <ion-label>Refferal Code</ion-label>
+    <ion-text slot="end">{{refferalCode}}</ion-text>
+  </ion-item>
+  
+  <!--<ion-item>
     <ion-label>Refferal Code</ion-label>
     <ion-label style="text-align: center;">{{refferalCode}}</ion-label>
   </ion-item>
   <ion-item>
     <ion-label>Wallet Amount</ion-label>
     <ion-label style="text-align: center;">{{walletAmount}}</ion-label>
-  </ion-item>
+  </ion-item>-->
+
+<div class="transaction-histry">
+
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="wallet" lines="none">
+      <ion-segment-button value="all-transaction" (ionSelect)="goToAllTransaction()" lines="none">
+        सभी
+      </ion-segment-button>
+      <ion-segment-button value="credit">
+        प्राप्त राशि
+      </ion-segment-button>
+      <ion-segment-button value="debit">
+        निकासी/भुगतान
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <div [ngSwitch]="wallet" class="transaction-con">
+
+      <ion-list *ngSwitchCase="'all-transaction'">
+        <h4>अगस्त 2021</h4>
+        <ion-item lines="full" class="credit-trans ion-color-success ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">+650</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 अगस्त 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+
+        <h4>जुलाई 2021</h4>
+
+        <ion-item lines="full" class="credit-trans ion-color-success ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">+650</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 जुलाई 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="full" class="debit-trans ion-color-danger ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">-1000</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 जुलाई 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'credit'">
+        <h4>अगस्त 2021</h4>
+        <ion-item lines="full" class="credit-trans ion-color-success ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">+650</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 अगस्त 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="full" class="credit-trans ion-color-success ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">+650</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 अगस्त 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="full" class="credit-trans ion-color-success ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">+650</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 अगस्त 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'debit'">
+        <h4>अगस्त 2021</h4>
+        <ion-item lines="full" class="debit-trans ion-color-danger ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">-1000</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 अगस्त 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="full" class="debit-trans ion-color-danger ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">-1000</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 अगस्त 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="full" class="debit-trans ion-color-danger ion-color">
+          <ion-label>
+            <h5>कार्य का भुकतान प्राप्त किया</h5>
+            <div class="trans-amount">-1000</div>
+            <p class="tra-ID">ID : 569WED56</p>
+            <p class="tra-date"><ion-icon name="calendar-outline"></ion-icon> 16 अगस्त 2021 सय 6:34 बजे </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      
+
+</div>
+</div>
+
 </ion-content>

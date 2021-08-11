@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar class="tool">
+  <ion-toolbar>
     <ion-title>{{languageService.perInform_for_lang}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,7 +8,7 @@
 <ion-content>
   <div class="px-10">
   <form [formGroup]="form"  (ngSubmit)="onSubmit()">
-    <ion-grid class="form-style">
+    <ion-grid class="form-style pb-70">
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
           <ion-list>
@@ -27,12 +27,12 @@
               ></ion-input>
             </ion-item>
 
-            <ion-item *ngIf="submitted && f('moNumber').hasError('required')"
+            <div *ngIf="submitted && f('moNumber').hasError('required')"
             lines="none">
             <ion-label *ngIf="f('moNumber').hasError('required')"  class="validation">
               {{languageService.cant_empty_for_lang}}
             </ion-label>
-          </ion-item>
+          </div>
 
         <ion-item *ngIf="submitted && f('moNumber').hasError('minlength')"  
           lines="none">
@@ -43,12 +43,12 @@
 
         
 
-        <ion-item *ngIf="f('moNumber').hasError('pattern')" 
+        <div *ngIf="f('moNumber').hasError('pattern')" 
           lines="none">
           <ion-label class="validation">
             {{languageService.mo_must_number}}
           </ion-label>
-        </ion-item>
+        </div>
 
         <ion-item>
           <ion-label position="floating">{{languageService.andhar_for_lang}}</ion-label>
@@ -61,19 +61,19 @@
            
           ></ion-input>
         </ion-item>
-        <ion-item class="validation" *ngIf="submitted && f('adharNumber').hasError('minlength')"  
+        <div class="validation" *ngIf="submitted && f('adharNumber').hasError('minlength')"  
           lines="none">
           <ion-label  *ngIf="form.get('adharNumber').errors.minlength">
             12 अंक लंबा होना चाहिए
           </ion-label>
-        </ion-item>
+        </div>
 
-        <ion-item class="validation" *ngIf="f('adharNumber').hasError('pattern')" 
+        <div class="validation" *ngIf="f('adharNumber').hasError('pattern')" 
           lines="none">
           <ion-label >
             {{languageService.mo_must_number}}
           </ion-label>
-        </ion-item>
+        </div>
 
         <div  *ngIf="submitted && f('adharNumber').hasError('required')"
         lines="none">
@@ -92,7 +92,7 @@
           ></ion-input>
         </ion-item>
 
-        <div  *ngIf="submitted && f('firstName').hasError('required')"
+        <div *ngIf="submitted && f('firstName').hasError('required')"
         lines="none">
         <ion-label *ngIf="f('firstName').hasError('required')" class="validation">
           {{languageService.cant_empty_for_lang}}
@@ -132,12 +132,11 @@
           <ion-datetime [ngModel]="usersData.date_of_birth" displayFormat="DD-MMM-YYYY" formControlName="date_of_birth"  placeholder="06/05/1998"></ion-datetime>
         </ion-item>
 
-        <ion-item class="validation"
-        lines="none"  *ngIf="f('date_of_birth').hasError('restrictAge')">
+        <div lines="none"  *ngIf="f('date_of_birth').hasError('restrictAge')">
         <ion-label  class="validation">
           Age Must be greater than 18
         </ion-label>
-      </ion-item>
+      </div>
 
         <div  *ngIf="submitted && f('date_of_birth').hasError('required')"
         lines="none">
@@ -182,11 +181,9 @@
           </ion-list>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col size-sm="6" offset-sm="3">
+      <div class="sumit-btn">
          <ion-button class="ion-margin-vertical" type="submit" class="btn-primary" expand="block">Continue</ion-button>
-        </ion-col>
-      </ion-row>
+        </div>
     </ion-grid>
   </form>
 </div>

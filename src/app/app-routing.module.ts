@@ -136,6 +136,17 @@ const routes: Routes = [
     path: 'user-page',
     loadChildren: () => import('./user-page/user-page.module').then( m => m.UserPagePageModule)
   },
+  {
+    path: 'our-work',
+    loadChildren: () => import('./our-work/our-work.module').then( m => m.OurWorkPageModule)
+  },
+  {
+    path: 'new-work',
+    loadChildren: () => import('./new-work/new-work.module').then( m => m.NewWorkPageModule)
+  },  {
+    path: 'my-team',
+    loadChildren: () => import('./my-team/my-team.module').then( m => m.MyTeamPageModule)
+  },
 
 
 

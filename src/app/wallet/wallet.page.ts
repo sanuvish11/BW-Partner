@@ -9,12 +9,16 @@ export class WalletPage implements OnInit {
   walletAmount: string = '';
   refferalCode: string = '';
 
+  wallet: string = "transaction";
 
-  constructor() { }
+  constructor() { 
+    this.wallet = "all-transaction";
+  }
 
   ngOnInit() {
     this.refferalCode = localStorage.getItem('refferalCode');
     this.walletAmount = localStorage.getItem('walletAmount');
   }
+
 
 }

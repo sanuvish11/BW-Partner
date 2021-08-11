@@ -11,7 +11,7 @@
 <ion-content>
   <div class="px-10">
   <form [formGroup]="form"  (ngSubmit)="onSubmit()">
-    <ion-grid class="form-style">
+    <ion-grid class="form-style pb-70">
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
           <ion-list>
@@ -26,19 +26,19 @@
               ></ion-input>
             </ion-item>
           
-            <ion-item class="validation" *ngIf="submitted && f('pincode').hasError('required')"
+            <div class="validation" *ngIf="submitted && f('pincode').hasError('required')"
                 lines="none">
-                <ion-label *ngIf="f('pincode').hasError('required')"  class="validation">
+                <ion-label *ngIf="f('pincode').hasError('required')">
                   {{languageService.cant_empty_for_lang}}
                 </ion-label>
-              </ion-item>
+              </div>
     
-              <ion-item class="validation" *ngIf="f('pincode').hasError('pattern')" 
+              <div class="validation" *ngIf="f('pincode').hasError('pattern')" 
               lines="none">
               <ion-label >
                 Input must be a number!
               </ion-label>
-            </ion-item>
+            </div>
             <div  style="margin-bottom: 16px; margin-left: 15px;"  *ngIf="form.get('pincode').touched && pincodeCheck" [style.color]="'red'">
               <span>पिनकोड सही नहीं है</span>
             </div>
@@ -53,12 +53,12 @@
                 formControlName="city"
               ></ion-input>
             </ion-item>
-            <ion-item *ngIf="submitted && f('city').hasError('required')"
-                lines="none" class="validation">
-                <ion-label *ngIf="f('city').hasError('required')"  >
+            <div *ngIf="submitted && f('city').hasError('required')"
+                lines="none">
+                <ion-label *ngIf="f('city').hasError('required')" class="validation">
                   {{languageService.cant_empty_for_lang}}
                 </ion-label>
-              </ion-item>
+              </div>
     
             <ion-item>
               <ion-label position="floating">{{languageService.state_for_lang}} </ion-label>
@@ -70,12 +70,12 @@
                 formControlName="state"
               ></ion-input>
             </ion-item>
-            <ion-item class="validation" *ngIf="submitted && f('state').hasError('required')"
+            <div *ngIf="submitted && f('state').hasError('required')"
                 lines="none">
                 <ion-label *ngIf="f('state').hasError('required')"  class="validation">
                   {{languageService.cant_empty_for_lang}}
                 </ion-label>
-              </ion-item>
+              </div>
 
               <ion-item *ngIf="usersData.area == null" lines="none" class="ion-margin-bottom custome-select">
                 <ion-label class="ion-margin-bottom" position="stacked">डाक क्षेत्र </ion-label>
@@ -92,12 +92,12 @@
                 </select>
               </ion-item>
 
-              <ion-item *ngIf="submitted && f('area').hasError('required')"
-          lines="none" class="validation">
+              <div *ngIf="submitted && f('area').hasError('required')"
+          lines="none">
           <ion-label *ngIf="f('area').hasError('required')"  class="validation">
             {{languageService.cant_empty_for_lang}}
           </ion-label>
-        </ion-item>
+        </div>
 
         <ion-item lines="none" class="ion-margin-bottom custome-select">
           <ion-label class="ion-margin-bottom" position="stacked"
@@ -120,34 +120,34 @@
               <ion-label position="floating">{{languageService.address1_for_lang}}</ion-label>
               <ion-input [ngModel]="usersData.address1" formControlName="address1"></ion-input>
             </ion-item>
-            <ion-item *ngIf="submitted && f('address1').hasError('required')"
-            lines="none" class="validation">
+            <div *ngIf="submitted && f('address1').hasError('required')"
+            lines="none">
             <ion-label *ngIf="f('address1').hasError('required')"  class="validation">
               {{languageService.cant_empty_for_lang}}
             </ion-label>
-          </ion-item>
+          </div>
 
             <ion-item>
               <ion-label position="floating">{{languageService.address2_for_lang}}</ion-label>
               <ion-input [ngModel]="usersData.address2" formControlName="address2"></ion-input>
             </ion-item>
-            <ion-item *ngIf="submitted && f('address2').hasError('required')"
-            lines="none" class="validation">
+            <div *ngIf="submitted && f('address2').hasError('required')"
+            lines="none" >
             <ion-label *ngIf="f('address2').hasError('required')"  class="validation">
               {{languageService.cant_empty_for_lang}}
             </ion-label>
-          </ion-item>
+          </div>
 
             <ion-item>
               <ion-label position="floating">{{languageService.address3_for_lang}}</ion-label>
               <ion-input [ngModel]="usersData.address3" formControlName="address3"></ion-input>
             </ion-item>
-            <ion-item *ngIf="submitted && f('address3').hasError('required')"
-            lines="none" class="validation">
-            <ion-label *ngIf="f('address3').hasError('required')"  class="validation">
+            <div *ngIf="submitted && f('address3').hasError('required')"
+            lines="none">
+            <ion-label *ngIf="f('address3').hasError('required')" class="validation">
               {{languageService.cant_empty_for_lang}}
             </ion-label>
-          </ion-item>
+          </div>
 
             <!-- <ion-item>
               <ion-label position="floating">{{languageService.area_for_lang}}</ion-label>
@@ -166,12 +166,10 @@
           </ion-list>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col size-sm="6" offset-sm="3">
+      <div class="sumit-btn">
          <ion-button class="ion-margin-vertical" type="submit" class="btn-primary" expand="block">Continue</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        </div>
+        </ion-grid>
   </form>
 </div>
 </ion-content>

@@ -1,23 +1,140 @@
-<ion-header>
+<ion-header class="header-section ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start" >
-      <ion-menu-button class="manu_btn" menu="main-menu"></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button class="manu_btn">
+        <img src="./assets/images/user-profile.png">
+      </ion-menu-button>
+      <!--<ion-avatar>
+        <img src="./assets/images/user-profile.png">
+      </ion-avatar>-->
     </ion-buttons>
-      <div>
-       <h5 class="show_head"> {{showStatus}}</h5>
-      </div>
-
-      <ion-item class="make_color">
-        <ion-icon routerLink="/notification" name="notifications-sharp" class="ion-margin-start"></ion-icon>
-        <ion-icon routerLink="/message" name="chatbox-ellipses-sharp" class="ion-margin-start"></ion-icon>
-      </ion-item>
-      
-    <ion-buttons slot="end" >
-      <ion-toggle (ionChange)="changeStatusValue($event)" ></ion-toggle>
-    </ion-buttons>
+    <ion-title class="logo-d"><img src="./assets/images/logo-svg.svg"/></ion-title>
+    <ion-button slot="end" class="qrcode">
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<div class="worksort-summery">
+  <div class="notes">
+    नोटिस : आपका पुलिस वेरिफिकेशन अभी पूर्ण नहीं हुआ है कृपया
+    <button ion-button><ion-icon name="close-outline"></ion-icon></button>
+  </div>
 
+  <div class="work-status">
+    <ion-row>
+      <ion-col>
+        <div class="todaywork" routerLink="/our-work">
+          <h3>आज पूरे किये गये कार्य</h3>
+          <div class="nuber-count">2</div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="totalbid">
+          <h3>आज की कुल बिड</h3>
+          <div class="nuber-count">11</div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="waitingwork" routerLink="/new-work">
+          <h3>प्रतिरक्षात नए कार्य </h3>
+          <div class="nuber-count">3</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="online-status">
+    <ion-item lines="none">
+      <ion-label>अभी आप ऑनलाइन है</ion-label>
+      <ion-button slot="end"><ion-icon name="power-outline"></ion-icon></ion-button>
+    </ion-item>
+  </div>
+</div>
+
+<div class="ion-padding">
+<div class="work-box">
+  <div class="work-d ion-padding">
+    <h3>वर्तमान में जारी कार्य का विवरण</h3>
+    <h5>Praveen Kumar Vishwakarma</h5>
+    <p>ID : ABC2365</p>
+  </div>
+
+  <ion-item lines="none">
+    <ion-label>ए. सी. एवं पंखा रिपेयर</ion-label>
+    <ion-text slot="end"><img src="./assets/images/rupee.svg"/> 1200.00</ion-text>
+  </ion-item>
+</div>
+
+<div class="feedback-star">
+  <ion-item lines="none">
+    <ion-label>पिछले कार्य का फीडबैक</ion-label>
+    <ion-lable slot="end">
+      <ion-icon name="star-outline"></ion-icon>
+      <ion-icon name="star-outline"></ion-icon>
+      <ion-icon name="star-outline"></ion-icon>
+      <ion-icon name="star-outline"></ion-icon>
+      <ion-icon name="star-outline"></ion-icon>
+    </ion-lable>
+  </ion-item>
+</div>
+
+<div class="totalworks-status">
+  <ion-row>
+    <ion-col>
+      <div class="t-work-box reject-w">
+        <h3>नकारे गए कुल कार्य</h3>
+        <div class="w-number">217</div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="t-work-box reject-h-w">
+        <h3>अधूरे छोड़े गए कुल कार्य </h3>
+        <div class="w-number">102</div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="t-work-box completed-w">
+        <h3>पूरे किये गये कुल कार्य</h3>
+        <div class="w-number">788</div>
+      </div>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div class="total-earining">
+  <ion-row>
+    <ion-col>
+      <div class="t-earning">
+        आज दिनांक तक कुल अर्जित राशि
+        <div class="amount-t"><img src="./assets/images/rupee.svg"/> 10,000.00</div>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="w-balance">
+        आपका वर्तमान वॉलेट बैलेंस
+        <div class="amount-t"><img src="./assets/images/rupee.svg"/> 10,000.00</div>
+      </div>
+    </ion-col>
+  </ion-row>
+</div>
+</div>
 </ion-content>
+
+<ion-footer class="d-footer">
+ <ion-row>
+   <ion-col size="6">
+    <button ion-button>
+      <ion-icon name="list-circle-outline"></ion-icon>
+      <p>पुराने कार्यो की सूची देखें</p>
+    </button>
+   </ion-col>
+   <ion-col size="6">
+    <button ion-button>
+      <ion-icon name="mail-outline"></ion-icon>
+      <p>भारत वर्कर को मैसेज भेजें</p>
+    </button>
+   </ion-col>
+ </ion-row>
+</ion-footer>

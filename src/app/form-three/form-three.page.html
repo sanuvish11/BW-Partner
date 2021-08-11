@@ -10,15 +10,14 @@
 <ion-content>
   <div class="px-10">
     <form>
-      <ion-grid class="form-style">
+      <ion-grid class="form-style pb-70">
         <ion-row>
           <ion-col size-sm="6" offset-sm="3">
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <ion-list>
+                <h6>{{languageService.skill_for_lang}}</h6>
                 <ion-item lines="none" class="ion-margin-bottom custome-select">
-                  <ion-label class="ion-margin-bottom" position="stacked"
-                    >{{languageService.skill_for_lang}}</ion-label
-                  >
+                  
                   <select
                     (change)="getCoreSkills()"
                     formControlName="SKILLS"
@@ -31,28 +30,20 @@
                     </option>
                   </select>
                 </ion-item>
-                <ion-item
+                <div
                   *ngIf="submitted && f('SKILLS').hasError('required')"
                   lines="none"
                   class="validation"
                 >
                   <ion-label
-                    *ngIf="f('SKILLS').hasError('required')"
-                    class="validation"
+                    *ngIf="f('SKILLS').hasError('required')" 
                   >
                     {{languageService.cant_empty_for_lang}}
                   </ion-label>
-                </ion-item>
+                </div>
 
                 <div *ngIf="areaOfWork.length != 0">
-                  <ion-item lines="none">
-                    <ion-label
-                      class="ion-margin-bottom"
-                      style="font-size: 20px"
-                      position="stacked"
-                      >{{languageService.coreSkill_for_lang}}</ion-label
-                    >
-                  </ion-item>
+                  <h6>{{languageService.coreSkill_for_lang}}</h6>
 
                   <ion-item lines="none" *ngFor="let area of areaOfWork">
                     <ion-label>{{area.WORK_AREA_HINDI}}</ion-label>
@@ -65,26 +56,19 @@
                     </ion-checkbox>
                   </ion-item>
 
-                  <ion-item
+                  <div
                     *ngIf="showCoreError"
                     lines="none"
                     class="validation"
                   >
-                    <ion-label class="validation">
+                    <ion-label>
                       {{languageService.cant_empty_for_lang}}
                     </ion-label>
-                  </ion-item>
+                  </div>
                 </div>
 
                 <div *ngIf="workExperiece.length != 0">
-                  <ion-item lines="none">
-                    <ion-label
-                      class="ion-margin-bottom"
-                      style="font-size: 20px"
-                      position="stacked"
-                      >{{languageService.workExpe_for_lang}}</ion-label
-                    >
-                  </ion-item>
+                  <h6>{{languageService.workExpe_for_lang}}</h6>
 
                   <ion-item lines="none" *ngFor="let skills of workExperiece">
                     <ion-label>{{skills.WORK_EXPE_HINDI}}</ion-label>
@@ -97,24 +81,26 @@
                     </ion-checkbox>
                   </ion-item>
 
-                  <ion-item *ngIf="showExError" lines="none" class="validation">
-                    <ion-label class="validation">
+                  <div *ngIf="showExError" lines="none" class="validation">
+                    <ion-label>
                       {{languageService.cant_empty_for_lang}}
                     </ion-label>
-                  </ion-item>
+                  </div>
                 </div>
 
-                <ion-button
-                  class="ion-margin-vertical"
-                  type="submit"
-                  class="btn-primary"
-                  expand="block"
-                  >Continue</ion-button
-                >
+                
               </ion-list>
             </form>
           </ion-col>
         </ion-row>
+        <div class="sumit-btn">
+          <ion-button
+                  class="ion-margin-vertical"
+                  type="submit"
+                  class="btn-primary"
+                  expand="block"
+                  >Continue</ion-button>
+        </div>
       </ion-grid>
     </form>
   </div>
