@@ -1,9 +1,88 @@
-<ion-header>
+<ion-header class="header-section ion-no-border">
   <ion-toolbar>
-    <ion-title>my-team</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button class="manu_btn">
+        <img src="./assets/images/user-profile.png">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Team</ion-title>
+    <ion-button slot="end" class="qrcode">
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="my-team">
+    <h2>आपकी टीम </h2>
+    <ul>
+      <li>यदि आप 02 या 02 से अधिक साथियों के साथ मिल कर काम करते हैं तो यहाँ आप अलग - अलग 5 प्रकार की टीम बना सकते हैं। </li>
+      <li>टीम में न्यूनतम 2 सदस्य और अधिकतम 10 सदस्य हो सकते हैं। </li>
+    </ul>
+    <div class="team-btn">
+      <ion-buttons>
+        <ion-button class="btn-success" routerLink="/create-team">टीम बनाये</ion-button>
+        <ion-button class="btn-primary" routerLink="/team-list">टीम में साथियो को जोड़े /हटाये</ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+  <div class="teamno feedback-star">
+    <ion-item lines="none">
+      <ion-label>आपकी टीम</ion-label>
+      <ion-lable slot="end">
+        <ion-text>कुल 02</ion-text>
+        <ion-text class="remaining">शेष 02</ion-text>
+      </ion-lable>
+    </ion-item>
+  </div>
+
+  <div class="recent-work">
+    <div class="work-box">
+      <div class="work-d ion-padding">
+        <div class="cwork-status running">चालू है</div>
+        <h3>वर्तमान में जारी कार्य का विवरण</h3>
+        <p>टीम में सदस्यों की संख्या - <strong>08</strong></p>
+        <p>टीम बनाने अपडेट करने का दिनांक - <strong>08-09-2021</strong></p>
+      </div>
+    </div>
+
+    <div class="work-box">
+      <div class="work-d ion-padding">
+        <div class="cwork-status stoped">बंद है</div>
+        <h3>वर्तमान में जारी कार्य का विवरण</h3>
+        <p>टीम में सदस्यों की संख्या - <strong>08</strong></p>
+        <p>टीम बनाने अपडेट करने का दिनांक - <strong>08-09-2021</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teamno feedback-star">
+    <ion-item lines="none">
+      <ion-label>आप अभी नीचे दी गई टीम के सदस्य हैं</ion-label>
+    </ion-item>
+  </div>
+
+  <div class="recent-work joined-team">
+    <div class="work-box">
+      <div class="work-d ion-padding">
+        <h3>#1 White Washing</h3>
+        <h5>टीम लीडर</h5>
+        <p>नाम - <strong>Devilal Ahirwar</strong></p>
+        <p>मो - <strong>9823586956</strong></p>
+        <p>टीम में सदस्यों की कुल संख्या - <strong>04</strong></p>
+      </div>
+    </div>
+
+    <div class="work-box">
+      <div class="work-d ion-padding">
+        <h3>#1 White Washing</h3>
+        <h5>टीम लीडर</h5>
+        <p>नाम - <strong>Devilal Ahirwar</strong></p>
+        <p>मो - <strong>9823586956</strong></p>
+        <p>टीम में सदस्यों की कुल संख्या - <strong>04</strong></p>
+      </div>
+    </div>
+  </div>
 
 </ion-content>

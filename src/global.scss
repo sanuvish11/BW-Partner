@@ -761,3 +761,288 @@ ion-item {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
+
+.my-team {
+    padding: 0 16px;
+    h2 {
+        color: #16B1B7;
+        font-size: 16px;
+        ion-text {
+            color: #ff9800;
+        }
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0 0 0 16px;
+        li {
+            margin: 7px 0;
+            font-size: 13px;
+            color: #666;
+        }
+    }
+}
+.team-btn {
+    margin-top: 16px;
+    ion-buttons {
+        justify-content: center;
+    }
+    .btn-success {
+        background: #A7C802;
+        color: #fff;
+        border-radius: 2px;
+        font-weight: 700;
+        padding: 0px 5px;
+        height: 40px;
+    }
+    .btn-primary {
+        background: #16B1B7;
+        color: #fff;
+        border-radius: 2px;
+        font-weight: 700;
+        padding: 0px 5px;
+        height: 40px;
+    }
+    
+}
+.teamno {
+    &.feedback-star {
+        ion-item {
+            --background: #16B1B7;
+            border-radius: 0;
+            border:0;
+            color: #fff;
+            ion-text {
+                margin-left: 15px;
+                background: #fff;
+                color: #a7c802;
+                padding: 3px 10px;
+                border-radius: 30px;
+                font-size: 14px;
+                &.remaining {
+                    color:#16B1B7;
+                }
+            }
+        }
+    }
+}
+
+.recent-work {
+    padding: 0 16px;
+    margin: 16px 0;
+    
+    .work-box {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    .cwork-status {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        padding: 3px 10px;
+        border-radius: 30px;
+        font-size: 12px;
+        color: #fff;
+        &.running {
+            background:#A7C802;
+        }
+        &.stoped {
+            background:#666;
+        }
+    }
+
+    h3 {color:#16B1B7;}
+    p {
+        font-weight: 400;
+        color: #666;
+    }
+}
+
+.recent-work {
+    &.joined-team {
+        .work-box {
+            border-color: #ffa61d;
+            background: #fffcf6;
+        }
+        h3 {
+            color: #ff9800;
+        }
+    }
+}
+
+.add-team-m {
+    ion-row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    p {
+        font-weight: 400;
+        color: #666;
+        font-style: italic;
+        margin: 0;
+    }
+    h6 {text-align: left;}
+    ion-input {
+        border: 1px solid #ccc;
+        height: 45px;
+        background: #fff;
+    }
+    .btn-success {
+        height: 45px;
+        width:70px;
+        font-size: 18px;
+        font-weight: 700;
+        --background: #16B1B7;
+        margin: 0;
+        --border-radius: 0;
+    }
+    .btn-primary {
+        height: 40px;
+    }
+}
+
+.teams-members {
+    margin-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #f9f9f9;
+    padding-top: 10px;
+    padding-bottom: 60px;
+    ion-grid {
+        background: #fff;
+        padding: 0;
+    }
+    .header {
+        background:#ffe6c3;
+        color: #000;
+        font-weight: bold;
+        font-size:14px;
+    }
+    .btn-remove {
+        --background: transparent;
+        --padding-start: 0;
+        --padding-end: 0;
+        color: #16B1B7;
+        --border:0;
+        --box-shadow: none;
+        font-weight: 700;
+    }
+    .table-ontent {
+        font-size: 14px;
+        border-bottom: 1px solid #ccc;
+    }
+    .team-btn {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9;
+        ion-button {
+            border-radius: 0;
+            width: 50%;
+            margin: 0;
+            &.btn-secondary {
+                background: #525252;
+            }
+        }
+    }
+    ion-col {
+        padding: 7px;
+    }
+}
+
+.team-name {
+    padding-bottom: 50px;
+    .modal-wrapper {
+        width: 80%;
+        height: 180px;
+        border-radius: 8px;
+        padding: 16px;
+        ion-input {
+            border: 1px solid #ccc;
+        }
+    }
+    .add-team-name {
+        padding: 16px;
+        ion-label {
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 700;
+        }
+    }
+    .closemodal {
+        right: 0px;
+        top: 5px;
+        font-size: 30px;
+        background: transparent;
+        position: absolute;
+    }
+}
+
+.team-list {
+    .recent-work {
+        padding: 0;
+        .btn-primary {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            height: 35px;
+            --border-radius: 40px;
+        }
+    }
+}
+
+.btn-secondary {
+    --background: #525252;
+    color: #fff;
+    --border-radius: 2px;
+    border-radius: 2px;
+    font-weight: 700;
+    padding: 0px 5px;
+    height: 40px !important;
+}
+.btn-danger {
+    --background: #ff0000;
+    color: #fff;
+    --border-radius: 2px;
+    border-radius: 2px;
+    font-weight: 700;
+    padding: 0px 5px;
+    height: 40px !important; 
+}
+
+.edit-team {
+    .team-status {
+        color: #8bc34a;
+        margin: 0 0 0 0;
+        font-style: italic;
+        font-weight: 700;
+    }
+}
+
+.add-document {
+    h2 {
+        font-size: 18px;
+        color:#16B1B7;
+        margin-top: 0;
+    }
+    ion-select {
+        --padding-start:0;
+        border-bottom: 1px solid #eee;
+    }
+    .teams-members {
+        padding-bottom: 10px;
+    }
+}
+
+.document-image {
+    border: 1px solid #eee;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
+    
+}

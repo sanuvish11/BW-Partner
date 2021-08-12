@@ -1,0 +1,119 @@
+<ion-header class="header-section ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="manu_btn">
+        <img src="./assets/images/user-profile.png">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Create New Team</ion-title>
+    <ion-button slot="end" class="qrcode">
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="my-team">
+    <h2>आपकी नई टीम बनाये</h2>
+
+    <div class="add-team-m form-style">
+      <h6>सदस्य का मोबाइल नंबर लिखिए</h6>
+      <ion-row>
+        <ion-col size="9">
+        <ion-input></ion-input>
+        </ion-col>
+        <ion-col size="3">
+        <ion-button class="btn-success" expand="block">खोजे</ion-button>
+    </ion-col>
+    </ion-row>
+    <p>Pradeep Kumar Umariya / Sevaram, Rahul Nagar, Bhopal</p>
+    <div class="ion-text-end">
+      <ion-button class="btn-primary">अपनी टीम में जोड़ें</ion-button>
+    </div>
+    </div>
+  </div>
+
+  <div class="teamno feedback-star">
+    <ion-item lines="none">
+      <ion-label>टीम के सदस्य</ion-label>
+      <ion-lable slot="end">
+        <ion-text>कुल 04</ion-text>
+        <ion-text class="remaining">शेष 06</ion-text>
+      </ion-lable>
+    </ion-item>
+  </div>
+
+  <div class="teams-members">
+    <ion-grid>
+      <ion-row class="header">
+        <ion-col size="1">
+          <div class="num">क्र.</div>
+        </ion-col>
+        <ion-col size="6">
+          <div>सदस्य का नाम, मोबाइल नंबर</div>
+        </ion-col>
+        <ion-col>
+          <div size="3">एरिया</div>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+
+      <ion-row class="table-ontent">
+        <ion-col size="1">
+          <div class="num">1</div>
+        </ion-col>
+        <ion-col size="6">
+          <div>Puneet Mehara 9845698763</div>
+        </ion-col>
+        <ion-col>
+          <div size="3">वोदाबाग भोपाल</div>
+        </ion-col>
+        <ion-col size="2"><ion-button size="small" class="btn-remove">हटाये</ion-button></ion-col>
+      </ion-row>
+      <ion-row class="table-ontent">
+        <ion-col size="1">
+          <div class="num">1</div>
+        </ion-col>
+        <ion-col size="6">
+          <div>Puneet Mehara 9845698763</div>
+        </ion-col>
+        <ion-col>
+          <div size="3">वोदाबाग भोपाल</div>
+        </ion-col>
+        <ion-col size="2"><ion-button size="small" class="btn-remove">हटाये</ion-button></ion-col>
+      </ion-row>
+      <ion-row class="table-ontent">
+        <ion-col size="1">
+          <div class="num">1</div>
+        </ion-col>
+        <ion-col size="6">
+          <div>Puneet Mehara 9845698763</div>
+        </ion-col>
+        <ion-col>
+          <div size="3">वोदाबाग भोपाल</div>
+        </ion-col>
+        <ion-col size="2"><ion-button size="small" class="btn-remove">हटाये</ion-button></ion-col>
+      </ion-row>
+      <ion-row class="table-ontent">
+        <ion-col size="1">
+          <div class="num">1</div>
+        </ion-col>
+        <ion-col size="6">
+          <div>Puneet Mehara 9845698763</div>
+        </ion-col>
+        <ion-col>
+          <div size="3">वोदाबाग भोपाल</div>
+        </ion-col>
+        <ion-col size="2"><ion-button size="small" class="btn-remove">हटाये</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="team-btn">
+      <ion-buttons>
+        <ion-button class="btn-secondary" routerLink="/my-team">निरस्त करे पीछे जायें</ion-button>
+        <ion-button class="btn-primary" (click)="openModal()">ok, टीम को सेव करें</ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+</ion-content>

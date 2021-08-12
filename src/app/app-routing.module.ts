@@ -143,9 +143,25 @@ const routes: Routes = [
   {
     path: 'new-work',
     loadChildren: () => import('./new-work/new-work.module').then( m => m.NewWorkPageModule)
-  },  {
+  },
+  {
     path: 'my-team',
     loadChildren: () => import('./my-team/my-team.module').then( m => m.MyTeamPageModule)
+  },
+  {
+    path: 'create-team',
+    loadChildren: () => import('./create-team/create-team.module').then( m => m.CreateTeamPageModule)
+  },  {
+    path: 'team-list',
+    loadChildren: () => import('./team-list/team-list.module').then( m => m.TeamListPageModule)
+  },
+  {
+    path: 'edit-team',
+    loadChildren: () => import('./edit-team/edit-team.module').then( m => m.EditTeamPageModule)
+  },
+  {
+    path: 'add-documents',
+    loadChildren: () => import('./add-documents/add-documents.module').then( m => m.AddDocumentsPageModule)
   },
 
 
